@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>outWorld_common</module>
     </modules>
 
     <properties>
@@ -60,6 +61,13 @@
                 <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!--eureka 客户端 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>3.1.1</version>
             </dependency>
 
             <!-- Alibaba Nacos 配置 -->
@@ -181,55 +189,7 @@
                 <version>${transmittable-thread-local.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.cashway</groupId>
-                <artifactId>equipmgn-common-redis</artifactId>
-                <version>${cashway.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.cashway</groupId>
-                <artifactId>equipmgn-common-core</artifactId>
-                <version>${cashway.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.cashway</groupId>
-                <artifactId>equipmgn-api-system</artifactId>
-                <version>${cashway.version}</version>
-            </dependency>
-            <!-- 接口模块 -->
-            <dependency>
-                <groupId>com.cashway</groupId>
-                <artifactId>equipmgn-common-swagger</artifactId>
-                <version>${cashway.version}</version>
-            </dependency>
 
-            <!-- 安全模块 -->
-            <dependency>
-                <groupId>com.cashway</groupId>
-                <artifactId>equipmgn-common-security</artifactId>
-                <version>${cashway.version}</version>
-            </dependency>
-
-            <!-- 权限范围 -->
-            <dependency>
-                <groupId>com.cashway</groupId>
-                <artifactId>equipmgn-common-datascope</artifactId>
-                <version>${cashway.version}</version>
-            </dependency>
-
-            <!-- 多数据源 -->
-            <dependency>
-                <groupId>com.cashway</groupId>
-                <artifactId>equipmgn-common-datasource</artifactId>
-                <version>${cashway.version}</version>
-            </dependency>
-
-            <!-- 日志记录 -->
-            <dependency>
-                <groupId>com.cashway</groupId>
-                <artifactId>equipmgn-common-log</artifactId>
-                <version>${cashway.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
