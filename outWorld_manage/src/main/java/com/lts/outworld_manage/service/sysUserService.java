@@ -1,6 +1,6 @@
 package com.lts.outworld_manage.service;
 
-import com.lts.outworld_manage.entity.sysUser;
+import com.lts.outworld_manage.entity.SysUser;
 
 public interface sysUserService {
     /**
@@ -8,5 +8,5 @@ public interface sysUserService {
      * @param username 用户名
      * @return 用户信息
      */
-    sysUser userInfo(String username);
+    SysUser userInfo(String username);
 }

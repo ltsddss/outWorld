@@ -10,10 +10,10 @@ import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 public class gatecorsConfigration {
 
     @Bean
-    public CorsWebFilter corsWebFilter(){
-        UrlBasedCorsConfigurationSource source=new UrlBasedCorsConfigurationSource();
+    public CorsWebFilter corsWebFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
-        CorsConfiguration corsConfiguration=new CorsConfiguration();
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
 
 //        允许任何来源进行跨域
         corsConfiguration.addAllowedOrigin("*");
@@ -27,7 +27,7 @@ public class gatecorsConfigration {
 //        允许携带cookie跨域
         corsConfiguration.setAllowCredentials(true);
 
-        source.registerCorsConfiguration("/**",corsConfiguration);
+        source.registerCorsConfiguration("/**", corsConfiguration);
 
         return new CorsWebFilter(source);
     }
