@@ -1,6 +1,6 @@
 package com.lts.outworld_system.controller;
 
-import com.lts.outworld_system.entity.sysUser;
+import com.lts.outworld_system.entity.SysUser;
 import com.lts.outworld_system.service.sysUserService;
 import com.lts.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +19,9 @@ public class sysUserController {
      * @return 返回结果
      */
     @GetMapping("/login")
-    public R login(@RequestBody sysUser sysUser){
-        return R.ok();
+    public R login(@RequestBody SysUser sysUser){
+        SysUser userInfo = sysUserService.userInfo(sysUser);
+        return R.ok().put("data",userInfo);
     }
 
     /**
@@ -29,7 +30,7 @@ public class sysUserController {
      * @return 返回结果
      */
     @PostMapping("/register")
-    public R register(@RequestBody sysUser sysUser){
+    public R register(@RequestBody SysUser sysUser){
         return R.ok();
     }
 
@@ -39,7 +40,7 @@ public class sysUserController {
      * @return 返回结果
      */
     @PostMapping("/deleteById")
-    public R deleteUser(@RequestBody sysUser sysUser){
+    public R deleteUser(@RequestBody SysUser sysUser){
         return R.ok();
     }
 }

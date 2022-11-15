@@ -9,7 +9,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class sysUser {
+public class SysUser {
 
     private static final long serialVersionUID = 1L;
 
