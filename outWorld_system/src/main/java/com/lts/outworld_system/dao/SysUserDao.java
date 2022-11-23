@@ -4,7 +4,7 @@ import com.lts.outworld_system.entity.SysUser;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface sysUserDao {
+public interface SysUserDao {
     /**
      * 根据用户名查询用户信息
      * @param sysUser 用户名

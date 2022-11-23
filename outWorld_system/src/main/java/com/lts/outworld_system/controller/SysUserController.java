@@ -1,27 +1,34 @@
 package com.lts.outworld_system.controller;
 
 import com.lts.outworld_system.entity.SysUser;
-import com.lts.outworld_system.service.sysUserService;
+import com.lts.outworld_system.service.SysUserService;
+import com.lts.utils.JWTUtils;
 import com.lts.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/system")
-public class sysUserController {
+public class SysUserController {
 
     @Autowired
-    private sysUserService sysUserService;
+    private SysUserService sysUserService;
+
+    @Autowired
+    public RedisTemplate<String,String> redisTemplate;
 
     /**
      *  登录接口
-     * @param sysUser 登录需要的信息
+     * @param username 登录需要的信息（userName）
      * @return 返回结果
      */
-    @GetMapping("/login")
-    public R login(@RequestBody SysUser sysUser){
+    @GetMapping("/login/{username}")
+    public R<SysUser> login(@PathVariable("username") String username){
+        SysUser sysUser=new SysUser();
+        sysUser.setUserName(username);
         SysUser userInfo = sysUserService.userInfo(sysUser);
-        return R.ok().put("data",userInfo);
+        return R.ok(userInfo);
     }
 
     /**

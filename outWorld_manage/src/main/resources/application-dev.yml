@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
   #mysql
@@ -32,5 +32,4 @@ eureka:
 
 # MyBatis
 mybatis:
-  typeAliasesPackage: com.lts
   mapperLocations: classpath*:mapper/**/*Mapper.xml

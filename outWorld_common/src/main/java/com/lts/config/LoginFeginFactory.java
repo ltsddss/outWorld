@@ -17,12 +17,10 @@ public class LoginFeginFactory implements FallbackFactory<LoginFegin> {
     @Override
     public LoginFegin create(Throwable cause) {
         log.error("用户服务调用失败:{}", cause.getMessage());
-        return new LoginFegin()
-        {
+        return new LoginFegin() {
             @Override
-            public R getUserInfo(String username)
-            {
-                return R.error("获取用户失败:" + cause.getMessage());
+            public R getUserInfo(String username) {
+                return R.fail("获取用户失败:" + cause.getMessage());
             }
         };
     }

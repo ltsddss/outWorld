@@ -16,7 +16,7 @@ public class gatecorsConfigration {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
 
 //        允许任何来源进行跨域
-        corsConfiguration.addAllowedOrigin("*");
+        corsConfiguration.addAllowedOriginPattern("*");
 
 //        允许任何方法进行跨域
         corsConfiguration.addAllowedMethod("*");
