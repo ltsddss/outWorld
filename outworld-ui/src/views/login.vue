@@ -17,25 +17,26 @@
 <script>
 
 export default {
-  name: "Login",
+  name: 'Login',
   data () {
     return {
       sysUser: {
         userName: '',
         userPassword: ''
-      },
+      }
     }
   },
   methods: {
     onSubmit () {
       // 发送登录请求
       this.$axios({
-        url: "api/outworld_auth/auth/login",
-        method: "post",
+        url: 'api/outworld_auth/auth/login',
+        method: 'post',
         data: this.sysUser
       }).then(r => {
         // 返回结果
         console.log(r.data.data)
+        this.$router.push('/index')
       })
     }
   }

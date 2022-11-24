@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/outWorld_auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/outWorld_common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/outWorld_common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/outWorld_eureka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/outWorld_eureka/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/outWorld_getway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/outWorld_manage/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/outWorld_moudles/outWorld_elasticsearch/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/outWorld_moudles/outWorld_rabbitMq/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/outWorld_moudles/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/outWorld_system/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/outWorld_system/src/main/resources/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

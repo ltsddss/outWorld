@@ -1,17 +1,27 @@
 <template>
-  <div style="height: 200px">
-    <video-player class="video-player vjs-custom-skin"
-                  ref="videoPlayer"
-                  :playsinline="true"
-                  :options="playerOptions"
-    ></video-player>
+  <div>
+    <div>
+      <el-input
+        placeholder="请输入内容"
+        v-model="roomNumber"
+        clearable>
+      </el-input>
+      <el-button type="primary" @click="getRoom">搜索</el-button>
+    </div>
+    <div style="height: 200px">
+      <video-player class="video-player vjs-custom-skin"
+                    ref="videoPlayer"
+                    :playsinline="true"
+                    :options="playerOptions"
+      ></video-player>
+    </div>
   </div>
-
 </template>
 <script>
+
 export default {
   name: 'BusImg',
-  data () {
+  data() {
     return {
       // 视频播放
       playerOptions: {
@@ -25,10 +35,10 @@ export default {
         techOrder: ['flash', 'html5'], // 兼容顺序
         flash: {
 
-          hls: { withCredentials: false }
+          hls: {withCredentials: false}
           // swf: 'static/video-js.swf' // 引入静态文件swf
         },
-        html5: { hls: { withCredentials: false } },
+        html5: {hls: {withCredentials: false}},
         sources: [{ // 流配置，数组形式，会根据兼容顺序自动切换
           type: 'rtmp/hls',
           src: 'rtmp://192.168.10.100/lives/livestream'
@@ -42,7 +52,14 @@ export default {
           remainingTimeDisplay: false,
           fullscreenToggle: true // 全屏按钮
         }
-      }
+      },
+      roomNumber: undefined
+    }
+  },
+  methods: {
+    getRoom() {
+    //  模糊查询直播间
+
     }
   }
 }

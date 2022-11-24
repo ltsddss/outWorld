@@ -2,7 +2,7 @@ package com.lts.outworld_manage.service;
 
 import com.lts.outworld_manage.entity.SysUser;
 
-public interface sysUserService {
+public interface SysUserService {
     /**
      * 根据用户名查询用户信息
      * @param username 用户名

@@ -5,7 +5,7 @@ import com.lts.utils.R;
 import org.springframework.web.bind.annotation.*;
 
 @RestController("/manage")
-public class sysUserController {
+public class SysUserController {
     /**
      * 实现对于sysUser表的增删查改
      */
