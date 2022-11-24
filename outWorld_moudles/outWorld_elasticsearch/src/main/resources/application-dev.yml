@@ -1,3 +1,4 @@
+
 spring:
   application:
     name: outworld-elasticsearch
@@ -7,3 +8,5 @@ spring:
     username: admin
     password: admin
     port: 5672
+server:
+  port: 8002

@@ -1,7 +1,6 @@
 package com.lts.outworld_system.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.lts.outworld_rabbitmq.config.RabbitConfig;
 import com.lts.outworld_system.entity.LiveBorast;
 import com.lts.outworld_system.service.LiveBorastService;
@@ -26,8 +25,8 @@ public class LiveBorastController {
     @PostMapping("/insertLiveBorastInfo")
     public R<String> insertLiveBorast(@RequestBody LiveBorast liveBorast){
 //        存库
-//        liveBorastService.insertLiveBorastInfo(liveBorast);
-//        TODO: 通知rabbitMq进行消费
+        liveBorastService.insertLiveBorastInfo(liveBorast);
+//        通知rabbitmq
         rabbitTemplate.convertAndSend(RabbitConfig.EXCHANGE_NAME,"boot.insert.#", JSON.toJSONString(liveBorast));
 
         return R.ok();

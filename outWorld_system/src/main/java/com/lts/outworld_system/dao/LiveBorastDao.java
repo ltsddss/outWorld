@@ -1,9 +1,11 @@
 package com.lts.outworld_system.dao;
 
 import com.lts.outworld_system.entity.LiveBorast;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
+@Mapper
 public interface LiveBorastDao {
 
     /**
@@ -21,7 +23,7 @@ public interface LiveBorastDao {
     int insertLiveBorastInfo(LiveBorast liveBorast);
 
     /**
-     * 删除直播间信息
+     * 删除直播间信息(逻辑删除)
      * @param liveBorast
      * @return
      */

@@ -1,7 +1,6 @@
 package com.lts.outworld_system.service;
 
 import com.lts.outworld_system.entity.LiveBorast;
-import org.springframework.stereotype.Service;
 
 public interface LiveBorastService {
     /**

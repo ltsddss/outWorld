@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lts.outworld_system.dao.LiveBorastDao">
+
+    <resultMap id="LiveBorast" type="com.lts.outworld_system.entity.LiveBorast">
+        <result property="borastId" column="borast_id"/>
+        <result property="borastImg" column="borast_img"/>
+        <result property="borastIntroduce" column="borast_introduce"/>
+        <result property="borastTitle" column="borast_title"/>
+        <result property="borastName" column="borast_name"/>
+        <result property="borastPartition" column="borast_partition"/>
+        <result property="borastType" column="borast_type"/>
+        <result property="borastPassword" column="borast_password"/>
+        <result property="borastStatus" column="borast_status"/>
+        <result property="borastChat" column="borast_chat"/>
+    </resultMap>
+
+    <insert id="insertLiveBorastInfo" parameterType="com.lts.outworld_system.entity.LiveBorast">
+        insert into outworld_sys.live_borast
+        values (#{borastId},
+                #{borastImg},
+                #{borastIntroduce},
+                #{borastTitle},
+                #{borastName},
+                #{borastPartition},
+                #{borastType},
+                #{borastPassword},
+                #{borastStatus},
+                #{borastChat})
+    </insert>
+</mapper>

@@ -29,7 +29,7 @@ public class ElasticSearchService {
      * @return 直播间信息
      */
     public R<LiveBorast> getInfoForLiveBorast(String question) throws IOException {
-        SearchRequest request=new SearchRequest("lts_index");
+        SearchRequest request=new SearchRequest("live_borast");
         SearchSourceBuilder searchSourceBuilder=new SearchSourceBuilder();
         TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery("borast_title", question);
         searchSourceBuilder.query(termQueryBuilder);
