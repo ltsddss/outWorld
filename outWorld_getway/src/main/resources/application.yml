@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+#
+        - id: test_router
+          uri: https://www.baidu.com
+          predicates:
+            - Query=url,baidu
+        - id: test_member
+          uri: lb://outworld-member
+          predicates:
+            - Path=/api/outworld_member/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: outworld_auth
+          uri: lb://outworld-auth
+          predicates:
+            - Path=/api/outworld_auth/**
+          filters:
+            - RewritePath=/api/outworld_auth/(?<segment>.*),/$\{segment}
+        - id: outworld_system
+          uri: lb://outworld-system
+          predicates:
+            - Path=/api/outworld_system/**
+          filters:
+            - RewritePath=/api/outworld_system/(?<segment>.*),/$\{segment}
+  application:
+    name: outworld-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
