@@ -1,3 +1,9 @@
 spring:
   application:
     name: outworld-elasticsearch
+
+  rabbitmq:
+    host: 101.133.149.79
+    username: admin
+    password: admin
+    port: 5672

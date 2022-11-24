@@ -1,8 +1,10 @@
-package com.lts.outworld_manage.entity;
+package com.lts.outworld_system.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
@@ -16,17 +18,17 @@ public class LiveBorast {
     /**
      * 直播间封面
      */
-    private String borast_img;
+    private String borastImg;
 
     /**
      * 直播间介绍
      */
-    private String borast_introduce;
+    private String borastIntroduce;
 
     /**
      * 直播间标题
      */
-    private String borast_title;
+    private String borastTitle;
     /**
      * 直播间名称（一般是用户的username）
      */

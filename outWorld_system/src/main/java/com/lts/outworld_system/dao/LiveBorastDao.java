@@ -1,6 +1,6 @@
-package com.lts.outworld_manage.dao;
+package com.lts.outworld_system.dao;
 
-import com.lts.outworld_manage.entity.LiveBorast;
+import com.lts.outworld_system.entity.LiveBorast;
 
 import java.util.List;
 

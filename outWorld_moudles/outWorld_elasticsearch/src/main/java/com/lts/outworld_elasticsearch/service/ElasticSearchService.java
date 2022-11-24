@@ -23,6 +23,11 @@ public class ElasticSearchService {
     @Autowired
     private RestHighLevelClient restHighLevelClient;
 
+    /**
+     * 返回10条直播间的一些信息
+     * @param question 查询信息
+     * @return 直播间信息
+     */
     public R<LiveBorast> getInfoForLiveBorast(String question) throws IOException {
         SearchRequest request=new SearchRequest("lts_index");
         SearchSourceBuilder searchSourceBuilder=new SearchSourceBuilder();

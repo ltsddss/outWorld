@@ -1,18 +1,9 @@
-package com.lts.outworld_manage.dao;
+package com.lts.outworld_system.service;
 
-import com.lts.outworld_manage.entity.LiveBorast;
+import com.lts.outworld_system.entity.LiveBorast;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-
-public interface LiveBorastDao {
-
-    /**
-     * 查询直播间信息
-     * @param liveBorast 直播间
-     * @return 直播间信息
-     */
-    List<LiveBorast> liveBorastInfo(LiveBorast liveBorast);
-
+public interface LiveBorastService {
     /**
      * 新增直播间信息
      * @param liveBorast 直播间信息

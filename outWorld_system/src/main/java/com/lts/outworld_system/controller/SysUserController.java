@@ -2,7 +2,6 @@ package com.lts.outworld_system.controller;
 
 import com.lts.outworld_system.entity.SysUser;
 import com.lts.outworld_system.service.SysUserService;
-import com.lts.utils.JWTUtils;
 import com.lts.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;

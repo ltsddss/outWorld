@@ -14,6 +14,11 @@ public class LiveBorast {
     private int borastId;
 
     /**
+     * 直播间封面
+     */
+    private String borast_img;
+
+    /**
      * 直播间介绍
      */
     private String borast_introduce;
