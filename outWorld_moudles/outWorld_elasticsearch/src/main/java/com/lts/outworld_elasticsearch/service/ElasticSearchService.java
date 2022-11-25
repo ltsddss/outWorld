@@ -28,12 +28,14 @@ public class ElasticSearchService {
      * @param question 查询信息
      * @return 直播间信息
      */
-    public R<LiveBorast> getInfoForLiveBorast(String question) throws IOException {
+    public R<LiveBorast> getInfoForLiveBorast(int pageNumber,String question) throws IOException {
         SearchRequest request=new SearchRequest("live_borast");
         SearchSourceBuilder searchSourceBuilder=new SearchSourceBuilder();
         TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery("borast_title", question);
         searchSourceBuilder.query(termQueryBuilder);
         searchSourceBuilder.timeout(new TimeValue(60, TimeUnit.SECONDS));
+        searchSourceBuilder.from(pageNumber);
+        searchSourceBuilder.size(10);
         request.source(searchSourceBuilder);
         SearchResponse search = restHighLevelClient.search(request, RequestOptions.DEFAULT);
         System.out.println(JSON.toJSONString(search.getHits()));

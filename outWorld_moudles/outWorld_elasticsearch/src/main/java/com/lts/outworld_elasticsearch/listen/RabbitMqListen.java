@@ -24,7 +24,7 @@ public class RabbitMqListen {
     private RestHighLevelClient restHighLevelClient;
 
     /**
-     * 监听rabbit的关于elasticsearch的队列
+     * 监听rabbit的关于elasticsearch的队列(实现关于mysql的直播表与elasticsearch的数据同步)
      */
 
     @RabbitListener(queues = "elasticsearch_queue")

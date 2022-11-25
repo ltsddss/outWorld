@@ -88,8 +88,4 @@ public class Stringutils {
 
         return city.substring(start,end);
     }
-
-    public static void main(String[] args) {
-        System.out.println(Stringutils.solutionCity("var returnCitySN = {\"cip\": \"180.89.59.204\", \"cid\": \"CN\", \"cname\": \"CHINA\"}"));
-    }
 }

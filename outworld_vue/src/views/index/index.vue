@@ -1,6 +1,10 @@
 <template>
   <div>
     <div>
+      <el-button type="primary">学习区</el-button>
+      <el-button type="primary">游戏区</el-button>
+    </div>
+    <div>
       <el-input
         placeholder="请输入内容"
         v-model="roomNumber"
@@ -8,12 +12,41 @@
       </el-input>
       <el-button type="primary" @click="getRoom">搜索</el-button>
     </div>
-    <div style="height: 200px">
-      <video-player class="video-player vjs-custom-skin"
+
+    <div>
+<!--      搜索出的信息进行显示-->
+
+    </div>
+
+    <div v-show="player">
+      <video-player
+                    style="width: 70%;height: 50%"
+                    class="video-player vjs-custom-skin"
                     ref="videoPlayer"
                     :playsinline="true"
                     :options="playerOptions"
       ></video-player>
+
+<!--      TODO：弹幕实时交流（如何实现netty向前端主动推送消息？如何进行监听）-->
+      <el-card class="box-card">
+        <div slot="header" class="clearfix">
+          <span>直播弹幕交流</span>
+        </div>
+        <div v-for="o in 4" :key="o" class="text item">
+          {{'列表内容 ' + o }}
+        </div>
+      </el-card>
+
+      <el-form>
+        <el-form-item label="">
+          <el-select v-model="playerOptions.aspectRatio" placeholder="请选择">
+            <el-option label="4:3" value="4:3"></el-option>
+            <el-option label="16:9" value="16:9"></el-option>
+            <el-option label="3:2" value="3:2"></el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
+
     </div>
   </div>
 </template>
@@ -34,7 +67,6 @@ export default {
         aspectRatio: '16:7', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
         techOrder: ['flash', 'html5'], // 兼容顺序
         flash: {
-
           hls: {withCredentials: false}
           // swf: 'static/video-js.swf' // 引入静态文件swf
         },
@@ -53,14 +85,47 @@ export default {
           fullscreenToggle: true // 全屏按钮
         }
       },
-      roomNumber: undefined
+      queryParms:{
+        pageNumber: undefined,
+        question:undefined
+      },
+      player:true,
     }
   },
   methods: {
     getRoom() {
-    //  模糊查询直播间
-
+    //  模糊查询直播间(向elasticsearch中请求数据)
+      this.axios({
+        url:'/api/outworld_elasticsearch/elasticsearch/getElasticsearchBorast',
+        method:"get",
+        data:this.queryParms
+      }).then(response=>{
+        console.log(response)
+        this.player=false
+      })
     }
   }
 }
 </script>
+<style>
+.text {
+  font-size: 14px;
+}
+
+.item {
+  margin-bottom: 18px;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both
+}
+
+.box-card {
+  width: 30%;
+}
+</style>

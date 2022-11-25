@@ -15,11 +15,6 @@ public class Question {
     private int pageNumber;
 
     /**
-     * 一次获取多少数据
-     */
-    private int limitSize;
-
-    /**
      * 查询的数据的拆线呢参数
      */
     private String question;

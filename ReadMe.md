@@ -12,3 +12,7 @@
 * 11月24日
     * 新增elasticsearch模块，全站查询直播间
     * 新增rabbitmq实现mysql中直播间表更新时的对elasticsearch的同步更新
+* 11月25日
+    * 考虑实现直播时的实时在线聊天
+    * 调整播放器的大小
+    * 设置elasticsearch的分页查询

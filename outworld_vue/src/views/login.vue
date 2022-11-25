@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-form ref="sysUser" v-model="sysUser">
+    <el-form ref="sysUser" v-model="sysUser" label-width="80px">
       <el-form-item lable="用户名">
         <el-input v-model="sysUser.userName"></el-input>
       </el-form-item>

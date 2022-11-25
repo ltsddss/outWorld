@@ -28,6 +28,12 @@ spring:
             - Path=/api/outworld_system/**
           filters:
             - RewritePath=/api/outworld_system/(?<segment>.*),/$\{segment}
+        - id: outworld_system
+          uri: lb://outworld-elasticsearch
+          predicates:
+            - Path=/api/outworld_elasticsearch/**
+          filters:
+            - RewritePath=/api/outworld_elasticsearch/(?<segment>.*),/$\{segment}
   application:
     name: outworld-gateway
 

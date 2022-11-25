@@ -25,12 +25,11 @@ public class LiveBorastController {
     public R<Object> getElasticsearchBorast(@RequestBody Question question){
 
         try {
-            elasticSearchService.getInfoForLiveBorast(question.getQuestion());
+            elasticSearchService.getInfoForLiveBorast(question.getPageNumber(),question.getQuestion());
         }
         catch (Exception e){
             e.printStackTrace();
         }
-
         return null;
     }
 }

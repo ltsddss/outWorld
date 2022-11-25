@@ -19,15 +19,10 @@ public class LiveBorastController {
     @Autowired
     private LiveBorastService liveBorastService;
 
-    @Autowired
-    private RabbitTemplate rabbitTemplate;
-
     @PostMapping("/insertLiveBorastInfo")
     public R<String> insertLiveBorast(@RequestBody LiveBorast liveBorast){
 //        存库
         liveBorastService.insertLiveBorastInfo(liveBorast);
-//        通知rabbitmq
-        rabbitTemplate.convertAndSend(RabbitConfig.EXCHANGE_NAME,"boot.insert.#", JSON.toJSONString(liveBorast));
 
         return R.ok();
     }

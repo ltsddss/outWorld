@@ -1,9 +1,11 @@
 <template>
-  <video-player class="video-player vjs-custom-skin"
-                ref="videoPlayer"
-                :playsinline="true"
-                :options="playerOptions"
-  ></video-player>
+  <div>
+    <video-player class="video-player vjs-custom-skin"
+                  ref="videoPlayer"
+                  :playsinline="true"
+                  :options="playerOptions"
+    ></video-player>
+  </div>
 </template>
 <script>
 export default {
