@@ -4,7 +4,7 @@ import com.lts.outworld_manage.entity.SysUser;
 import com.lts.utils.R;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/manage")
+@RestController("/mapper/manage")
 public class SysUserController {
     /**
      * 实现对于sysUser表的增删查改

@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,17 +16,17 @@ public class LiveBorast {
     /**
      * 直播间封面
      */
-    private String borastImg;
+    private String borast_img;
 
     /**
      * 直播间介绍
      */
-    private String borastIntroduce;
+    private String borast_introduce;
 
     /**
      * 直播间标题
      */
-    private String borastTitle;
+    private String borast_title;
     /**
      * 直播间名称（一般是用户的username）
      */
@@ -54,4 +52,20 @@ public class LiveBorast {
      * 直播间是否禁言(0不禁言，1禁言)
      */
     private int borastChat;
+
+    /**
+     * 直播间点赞数
+     */
+    private int borastSupport;
+
+    /**
+     * 直播间观看人数
+     */
+    private int borastLooked;
+
+    /**
+     * 直播间所在服务器
+     */
+    private String borastAdress;
 }
+

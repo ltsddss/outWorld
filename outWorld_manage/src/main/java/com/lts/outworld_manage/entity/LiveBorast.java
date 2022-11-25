@@ -52,4 +52,20 @@ public class LiveBorast {
      * 直播间是否禁言(0不禁言，1禁言)
      */
     private int borastChat;
+
+    /**
+     * 直播间点赞数
+     */
+    private int borastSupport;
+
+    /**
+     * 直播间观看人数
+     */
+    private int borastLooked;
+
+    /**
+     * 直播间所在服务器
+     */
+    private String borastAdress;
 }
+

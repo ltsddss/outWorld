@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lts.outworld_system.dao.LiveBorastDao">
+
+    <resultMap id="LiveBorast" type="com.lts.outworld_system.entity.LiveBorast">
+        <result property="borastId" column="borast_id"/>
+        <result property="borastImg" column="borast_img"/>
+        <result property="borastIntroduce" column="borast_introduce"/>
+        <result property="borastTitle" column="borast_title"/>
+        <result property="borastName" column="borast_name"/>
+        <result property="borastPartition" column="borast_partition"/>
+        <result property="borastType" column="borast_type"/>
+        <result property="borastPassword" column="borast_password"/>
+        <result property="borastStatus" column="borast_status"/>
+        <result property="borastChat" column="borast_chat"/>
+        <result property="borastSupport" column="borast_support"/>
+        <result property="borastLooked" column="borast_looked"/>
+        <result property="borastAdress" column="borast_adress"/>
+    </resultMap>
+
+    <select id="liveBorastInfo" resultMap="LiveBorast" parameterType="com.lts.outworld_system.entity.LiveBorast">
+        select borast_id,
+        borast_img,
+        borast_introduce,
+        borast_title,
+        borast_name,
+        borast_partition,
+        borast_type,
+        borast_password,
+        borast_status,
+        borast_chat,
+        borast_support,
+        borast_looked,
+        borast_adress
+        from outworld_sys.live_borast
+        <where>
+            <if test="borastId!=null">and borast_id=#{borastId}</if>
+            <if test="borastImg!=null">and borast_img=#{borastImg}</if>
+            <if test="borastIntroduce!=null">and borast_introduce=#{borastIntroduce}</if>
+            <if test="borastTitle!=null">and borast_title=#{borastTitle}</if>
+            <if test="borastName!=null">and borast_name=#{borastName}</if>
+            <if test="borastPartition">and borast_partition=#{borastPartition}</if>
+            <if test="borastType!=null">and borast_type=#{borastType}</if>
+            <if test="borastPassword!=null">and borast_password=#{borastPassword}</if>
+            <if test="borastStatus!=null">and borast_status=#{borastStatus}</if>
+            <if test="borastChat!=null">and borast_chat=#{borastChat}</if>
+            <if test="borastSupport!=null">and borast_support=#{borastSupport}</if>
+            <if test="borastLooked!=null">and borast_looked=#{borastLooked}</if>
+            <if test="borastAdress!=null">and borast_adress=#{borastAdress}</if>
+        </where>
+    </select>
+
+    <insert id="insertLiveBorastInfo" parameterType="com.lts.outworld_system.entity.LiveBorast">
+        insert into outworld_sys.live_borast
+        values (#{borastId},
+                #{borastImg},
+                #{borastIntroduce},
+                #{borastTitle},
+                #{borastName},
+                #{borastPartition},
+                #{borastType},
+                #{borastPassword},
+                #{borastStatus},
+                #{borastChat},
+                #{borastSupport},
+                #{borastLooked},
+                #{borastAdress})
+    </insert>
+</mapper>

@@ -1,12 +1,15 @@
-package com.lts.outworld_manage.dao;
+package com.lts.outworld_manage.service;
 
 import com.lts.outworld_manage.entity.LiveBorast;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-@Mapper
-public interface LiveBorastDao {
+public interface LiveBorastService {
+
+    /**
+     * 同步mysql的数据到elasticsearch
+     */
+    void SameLiveBorastToMysql();
 
     /**
      * 查询直播间信息

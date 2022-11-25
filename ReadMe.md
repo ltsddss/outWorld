@@ -16,3 +16,4 @@
     * 考虑实现直播时的实时在线聊天
     * 调整播放器的大小
     * 设置elasticsearch的分页查询
+    * mysql与elasticsearch的直播表的数据同步

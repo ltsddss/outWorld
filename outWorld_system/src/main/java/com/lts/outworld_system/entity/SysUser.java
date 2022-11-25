@@ -58,6 +58,11 @@ public class SysUser {
     private String userPassword;
 
     /**
+     * 用户在线状态(0 离线，1在线)
+     */
+    private int user_login_status;
+
+    /**
      * 帐号状态（0正常 1停用 2删除）
      */
     private String userStatus;

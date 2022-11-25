@@ -28,6 +28,9 @@
                 #{borastType},
                 #{borastPassword},
                 #{borastStatus},
-                #{borastChat})
+                #{borastChat},
+                #{borastSupport},
+                #{borastLooked},
+                #{borastAdress})
     </insert>
 </mapper>

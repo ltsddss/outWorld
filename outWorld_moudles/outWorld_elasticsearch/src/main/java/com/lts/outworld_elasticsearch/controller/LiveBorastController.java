@@ -23,7 +23,6 @@ public class LiveBorastController {
      */
     @GetMapping("/getElasticsearchBorast")
     public R<Object> getElasticsearchBorast(@RequestBody Question question){
-
         try {
             elasticSearchService.getInfoForLiveBorast(question.getPageNumber(),question.getQuestion());
         }
