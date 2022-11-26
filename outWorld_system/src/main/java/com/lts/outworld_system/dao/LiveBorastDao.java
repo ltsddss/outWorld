@@ -24,7 +24,7 @@ public interface LiveBorastDao {
 
     /**
      * 删除直播间信息(逻辑删除)
-     * @param liveBorast
+     * @param liveBorast 要删除的直播间信息
      * @return
      */
     int deleteLiveBorastInfo(LiveBorast liveBorast);

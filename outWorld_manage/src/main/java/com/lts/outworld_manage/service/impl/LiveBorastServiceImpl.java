@@ -5,6 +5,7 @@ import com.lts.outworld_manage.dao.LiveBorastDao;
 import com.lts.outworld_manage.entity.LiveBorast;
 import com.lts.outworld_manage.service.LiveBorastService;
 import com.lts.outworld_rabbitmq.config.RabbitConfig;
+import com.lts.outworld_rabbitmq.constant.RabbitMqConstant;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.index.IndexRequest;
@@ -82,7 +83,7 @@ public class LiveBorastServiceImpl implements LiveBorastService {
     @Override
     public int insertLiveBorastInfo(LiveBorast liveBorast) {
         //        通知rabbitmq
-        rabbitTemplate.convertAndSend(RabbitConfig.EXCHANGE_NAME, "boot.insert.#", JSON.toJSONString(liveBorast));
+        rabbitTemplate.convertAndSend(RabbitMqConstant.EXCHANGE_NAME, "boot.insert.#", JSON.toJSONString(liveBorast));
 
         return liveBorastDao.insertLiveBorastInfo(liveBorast);
     }

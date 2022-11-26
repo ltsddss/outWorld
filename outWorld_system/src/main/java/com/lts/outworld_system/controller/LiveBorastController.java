@@ -19,6 +19,11 @@ public class LiveBorastController {
     @Autowired
     private LiveBorastService liveBorastService;
 
+    /**
+     * 新建直播间
+     * @param liveBorast 直播间信息
+     * @return 是否成功
+     */
     @PostMapping("/insertLiveBorastInfo")
     public R<String> insertLiveBorast(@RequestBody LiveBorast liveBorast){
 //        存库
@@ -26,4 +31,6 @@ public class LiveBorastController {
 
         return R.ok();
     }
+
+
 }

@@ -17,3 +17,6 @@
     * 调整播放器的大小
     * 设置elasticsearch的分页查询
     * mysql与elasticsearch的直播表的数据同步
+* 11月26日
+    * 考虑在vue中使用rabbitmq来与服务器建立长连接，监听rabbitmq的队列来实现实时的弹幕交流(但是rabbitmq的队列设置是用完既销毁，无法查看之前人发送的弹幕消息)
+    * 删除一些无用的文件

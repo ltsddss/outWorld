@@ -1,7 +1,7 @@
 package com.lts.outworld_system.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.lts.outworld_rabbitmq.config.RabbitConfig;
+import com.lts.outworld_rabbitmq.constant.RabbitMqConstant;
 import com.lts.outworld_system.dao.LiveBorastDao;
 import com.lts.outworld_system.entity.LiveBorast;
 import com.lts.outworld_system.service.LiveBorastService;
@@ -27,9 +27,10 @@ public class LiveBorastServiceImpl implements LiveBorastService {
     @Override
     public int insertLiveBorastInfo(LiveBorast liveBorast) {
         //        通知rabbitmq
-        rabbitTemplate.convertAndSend(RabbitConfig.EXCHANGE_NAME,"boot.insert.#", JSON.toJSONString(liveBorast));
-
-        return liveBorastDao.insertLiveBorastInfo(liveBorast);
+        rabbitTemplate.convertAndSend(RabbitMqConstant.EXCHANGE_NAME,"boot.insert.#", JSON.toJSONString(liveBorast));
+        int result = liveBorastDao.insertLiveBorastInfo(liveBorast);
+//        TODO：当直播间创建的时候随即在rabbitmq上面创建一个以改直播间的borastName命名的一个交换机和队列,来实现实时的弹幕交流
+        return result;
     }
     /**
      * 删除时(逻辑删除)直播间时向rabbitmq发送消息，让elasticsearch执行新增命令

@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import static com.lts.outworld_rabbitmq.constant.RabbitMqConstant.EXCHANGE_NAME;
+import static com.lts.outworld_rabbitmq.constant.RabbitMqConstant.QUEUE_NAME;
+
 @Configuration
 public class RabbitConfig {
-
-    public static final String EXCHANGE_NAME="elasticsearch_exchange";
-    public static final String QUEUE_NAME="elasticsearch_queue";
 
 //    配置交换机和队列的绑定关系
     @Bean("bootExchange")
