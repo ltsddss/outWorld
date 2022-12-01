@@ -7,7 +7,7 @@
     <div>
       <el-input
         placeholder="请输入内容"
-        v-model="roomNumber"
+        v-model="queryParms.question"
         clearable>
       </el-input>
       <el-button type="primary" @click="getRoom">搜索</el-button>

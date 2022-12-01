@@ -10,11 +10,15 @@ import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.core.TimeValue;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.TermQueryBuilder;
+import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -28,7 +32,7 @@ public class ElasticSearchService {
      * @param question 查询信息
      * @return 直播间信息
      */
-    public R<LiveBorast> getInfoForLiveBorast(int pageNumber,String question) throws IOException {
+    public R<List<Map<String,Object>>> getInfoForLiveBorast(int pageNumber,String question) throws IOException {
         SearchRequest request=new SearchRequest("live_borast");
         SearchSourceBuilder searchSourceBuilder=new SearchSourceBuilder();
         TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery("borastTitle", question);
@@ -36,12 +40,17 @@ public class ElasticSearchService {
         searchSourceBuilder.timeout(new TimeValue(60, TimeUnit.SECONDS));
         searchSourceBuilder.from(pageNumber);
         searchSourceBuilder.size(10);
+//        设置是否按匹配度排序
+        searchSourceBuilder.explain(true);
         request.source(searchSourceBuilder);
         SearchResponse search = restHighLevelClient.search(request, RequestOptions.DEFAULT);
+        SearchHit[] searchHits = search.getHits().getHits();
 
-        System.out.println(JSON.toJSONString(search.getHits().getHits()));
-        System.out.println("==================");
-        return null;
+        List<Map<String,Object>> list=new ArrayList<>();
+        for (SearchHit searchHit : searchHits) {
+            list.add(searchHit.getSourceAsMap());
+        }
+        return R.ok(list);
     }
 
 

@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/elasticsearch")
 public class LiveBorastController {
@@ -22,9 +25,9 @@ public class LiveBorastController {
      * @return 相关性最高的内容
      */
     @GetMapping("/getElasticsearchBorast")
-    public R<Object> getElasticsearchBorast(@RequestBody Question question){
+    public R<List<Map<String,Object>>> getElasticsearchBorast(@RequestBody Question question){
         try {
-            elasticSearchService.getInfoForLiveBorast(question.getPageNumber(),question.getQuestion());
+            return elasticSearchService.getInfoForLiveBorast(question.getPageNumber(),question.getQuestion());
         }
         catch (Exception e){
             e.printStackTrace();

@@ -1,16 +1,10 @@
 package com.lts.outworld_system.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.lts.outworld_rabbitmq.config.RabbitConfig;
 import com.lts.outworld_system.entity.LiveBorast;
 import com.lts.outworld_system.service.LiveBorastService;
 import com.lts.utils.R;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/elasticsearch")
@@ -32,5 +26,13 @@ public class LiveBorastController {
         return R.ok();
     }
 
+    /**
+     * 点击对应直播间的时候显示对应的信息(根据直播间的id查询)
+     * @return
+     */
+    @GetMapping("/selectLiveBorast")
+    public R<LiveBorast> selectLiveBorast(@RequestBody LiveBorast liveBorast){
+        return R.ok(liveBorastService.liveBorastInfo(liveBorast).get(0));
+    }
 
 }

@@ -7,7 +7,10 @@ import com.lts.outworld_system.entity.LiveBorast;
 import com.lts.outworld_system.service.LiveBorastService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class LiveBorastServiceImpl implements LiveBorastService {
@@ -19,6 +22,21 @@ public class LiveBorastServiceImpl implements LiveBorastService {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
+    @Autowired
+    private RedisTemplate<Object,Object> redisTemplate;
+
+    /**
+     * 从数据库中查询直播间的数据
+     * @param liveBorast 直播间
+     * @return
+     */
+    @Override
+    public List<LiveBorast> liveBorastInfo(LiveBorast liveBorast) {
+//        先看看redis中是否存在改直播间的信息
+        redisTemplate.opsForValue();
+        return liveBorastDao.liveBorastInfo(liveBorast);
+    }
+
     /**
      * 新增直播间时向rabbitmq发送消息，让elasticsearch执行新增命令
      * @param liveBorast 直播间信息
@@ -29,7 +47,6 @@ public class LiveBorastServiceImpl implements LiveBorastService {
         //        通知rabbitmq
         rabbitTemplate.convertAndSend(RabbitMqConstant.EXCHANGE_NAME,"boot.insert.#", JSON.toJSONString(liveBorast));
         int result = liveBorastDao.insertLiveBorastInfo(liveBorast);
-//        TODO：当直播间创建的时候随即在rabbitmq上面创建一个以改直播间的borastName命名的一个交换机和队列,来实现实时的弹幕交流
         return result;
     }
     /**
