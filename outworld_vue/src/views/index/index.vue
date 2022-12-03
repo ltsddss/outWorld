@@ -1,52 +1,62 @@
 <template>
   <div>
     <div>
-      <el-button type="primary">学习区</el-button>
-      <el-button type="primary">游戏区</el-button>
-    </div>
-    <div>
-      <el-input
-        placeholder="请输入内容"
-        v-model="queryParms.question"
-        clearable>
-      </el-input>
-      <el-button type="primary" @click="getRoom">搜索</el-button>
-    </div>
+      <div>
+        <el-input
+          placeholder="请输入内容"
+          v-model="queryParms.question"
+          style="width: 200px"
+          clearable>
+        </el-input>
+        <el-button type="primary" @click="getRoom">搜索</el-button>
+        <el-button type="primary">学习区</el-button>
+        <el-button type="primary">游戏区</el-button>
+      </div>
+      <el-container>
+        <el-container>
+          <el-main>
+            <div v-show="player" style="width: 100%">
+            <span>
+              <video-player
+                style="width: 100%;height: 50%"
+                class="video-player vjs-custom-skin"
+                ref="videoPlayer"
+                :playsinline="true"
+                :options="playerOptions"
+              ></video-player>
 
-    <div>
-<!--      搜索出的信息进行显示-->
+            </span>
+              <!--      TODO：弹幕实时交流（如何实现netty向前端主动推送消息？如何进行监听）-->
+              <el-card class="box-card">
+                <div slot="header" class="clearfix">
+                  <span>直播弹幕交流</span>
+                </div>
+                <div v-for="o in 4" :key="o" class="text item">
+                  {{ '列表内容 ' + o }}
+                </div>
+              </el-card>
+            </div>
 
-    </div>
 
-    <div v-show="player">
-      <video-player
-                    style="width: 70%;height: 50%"
-                    class="video-player vjs-custom-skin"
-                    ref="videoPlayer"
-                    :playsinline="true"
-                    :options="playerOptions"
-      ></video-player>
+            <el-form>
+              <el-form-item label="">
+                <el-select v-model="playerOptions.aspectRatio" placeholder="请选择">
+                  <el-option label="4:3" value="4:3"></el-option>
+                  <el-option label="16:9" value="16:9"></el-option>
+                  <el-option label="3:2" value="3:2"></el-option>
+                </el-select>
+              </el-form-item>
+            </el-form>
+          </el-main>
 
-<!--      TODO：弹幕实时交流（如何实现netty向前端主动推送消息？如何进行监听）-->
-      <el-card class="box-card">
-        <div slot="header" class="clearfix">
-          <span>直播弹幕交流</span>
-        </div>
-        <div v-for="o in 4" :key="o" class="text item">
-          {{'列表内容 ' + o }}
-        </div>
-      </el-card>
-
-      <el-form>
-        <el-form-item label="">
-          <el-select v-model="playerOptions.aspectRatio" placeholder="请选择">
-            <el-option label="4:3" value="4:3"></el-option>
-            <el-option label="16:9" value="16:9"></el-option>
-            <el-option label="3:2" value="3:2"></el-option>
-          </el-select>
-        </el-form-item>
-      </el-form>
-
+          <el-footer>这里是底部</el-footer>
+        </el-container>
+        <el-aside width="400px" style="height: 485px">
+          <div v-for="o in 6" :key="o">
+            <img src="../../assets/logo.png" style="height: 76px;width: 100%">
+          </div>
+        </el-aside>
+      </el-container>
     </div>
   </div>
 </template>
@@ -85,23 +95,23 @@ export default {
           fullscreenToggle: true // 全屏按钮
         }
       },
-      queryParms:{
+      queryParms: {
         pageNumber: undefined,
-        question:undefined
+        question: undefined
       },
-      player:true,
+      player: true,
     }
   },
   methods: {
     getRoom() {
-    //  模糊查询直播间(向elasticsearch中请求数据)
+      //  模糊查询直播间(向elasticsearch中请求数据)
       this.axios({
-        url:'/api/outworld_elasticsearch/elasticsearch/getElasticsearchBorast',
-        method:"get",
-        data:this.queryParms
-      }).then(response=>{
+        url: '/api/outworld_elasticsearch/elasticsearch/getElasticsearchBorast',
+        method: "get",
+        data: this.queryParms
+      }).then(response => {
         console.log(response)
-        this.player=false
+        this.player = false
       })
     }
   }
@@ -121,6 +131,7 @@ export default {
   display: table;
   content: "";
 }
+
 .clearfix:after {
   clear: both
 }
