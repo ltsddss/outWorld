@@ -18,6 +18,7 @@
     "videojs-flash": "^2.1.2",
     "vue": "^2.5.2",
     "vue-axios": "^3.4.1",
+    "vue-puzzle-verification": "^1.0.2",
     "vue-router": "^3.0.1",
     "vue-video-player": "^5.0.2"
   },

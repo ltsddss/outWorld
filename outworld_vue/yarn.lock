@@ -7543,6 +7543,14 @@
     "vue-style-loader" "^3.0.0"
     "vue-template-es2015-compiler" "^1.6.0"
 
+"vue-puzzle-verification@^1.0.2":
+  "integrity" "sha512-0haMuEm4F4qrt8mQf4qQsAg97OWT8oG2w0oLMGMu7mpZYkIZFp6/EYlHn4kdHiuzCV2+o1S7q4LlXtcCvSV3ZA=="
+  "resolved" "https://registry.npmjs.org/vue-puzzle-verification/-/vue-puzzle-verification-1.0.2.tgz"
+  "version" "1.0.2"
+  dependencies:
+    "vue" "^2.5.2"
+    "vue-router" "^3.0.1"
+
 "vue-router@^3.0.1":
   "integrity" "sha512-FUlILrW3DGitS2h+Xaw8aRNvGTwtuaxrRkNSHWTizOfLUie7wuYwezeZ50iflRn8YPV5kxmU2LQuu3nM/b3Zsg=="
   "resolved" "https://registry.npmjs.org/vue-router/-/vue-router-3.5.3.tgz"

@@ -2,15 +2,9 @@
   <div>
     <div>
       <div>
-        <el-input
-          placeholder="请输入内容"
-          v-model="queryParms.question"
-          style="width: 200px"
-          clearable>
-        </el-input>
-        <el-button type="primary" @click="getRoom">搜索</el-button>
-        <el-button type="primary">学习区</el-button>
-        <el-button type="primary">游戏区</el-button>
+        <el-header style="height:auto">
+          <nav-head :user="queryParms.question"></nav-head>
+        </el-header>
       </div>
       <el-container>
         <el-container>
@@ -61,11 +55,16 @@
   </div>
 </template>
 <script>
-
+import NavHead from '../../components/NavHead.vue'
 export default {
+
   name: 'BusImg',
+  components: {
+    NavHead
+  },
   data() {
     return {
+      user:null,
       // 视频播放
       playerOptions: {
         playbackRates: [0.7, 1.0, 1.5, 2.0], // 播放速度
