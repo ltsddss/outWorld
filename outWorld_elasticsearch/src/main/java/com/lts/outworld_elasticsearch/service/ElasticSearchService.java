@@ -1,6 +1,7 @@
 package com.lts.outworld_elasticsearch.service;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.lts.outworld_elasticsearch.entity.LiveBorast;
 import com.lts.utils.R;
 import org.elasticsearch.action.search.SearchRequest;
@@ -32,7 +33,7 @@ public class ElasticSearchService {
      * @param question 查询信息
      * @return 直播间信息
      */
-    public R<List<Map<String,Object>>> getInfoForLiveBorast(int pageNumber,String question) throws IOException {
+    public R<List<LiveBorast>> getInfoForLiveBorast(int pageNumber,String question) throws IOException {
         SearchRequest request=new SearchRequest("live_borast");
         SearchSourceBuilder searchSourceBuilder=new SearchSourceBuilder();
         TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery("borastTitle", question);
@@ -46,10 +47,12 @@ public class ElasticSearchService {
         SearchResponse search = restHighLevelClient.search(request, RequestOptions.DEFAULT);
         SearchHit[] searchHits = search.getHits().getHits();
 
-        List<Map<String,Object>> list=new ArrayList<>();
+        List<LiveBorast> list=new ArrayList<>();
         for (SearchHit searchHit : searchHits) {
-            list.add(searchHit.getSourceAsMap());
+            list.add(JSONObject.parseObject(JSONObject.toJSONString(searchHit.getSourceAsMap()),LiveBorast.class));
         }
+//        处理返回的map数据，将map转为对象
+
         return R.ok(list);
     }
 

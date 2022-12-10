@@ -24,23 +24,28 @@
               <form>
                 <h1>注册</h1>
                 <input type="text"
-                       placeholder="昵称">
-                <input type="email"
-                       placeholder="电子邮箱">
+                       placeholder="用户名"
+                       v-model="sysUser.userName"
+                >
                 <input type="password"
-                       placeholder="密码">
+                       placeholder="密码"
+                       v-model="sysUser.userPassword"
+                >
                 <button>注册</button>
               </form>
             </div>
             <div class="form-container sign-in-container">
               <form action="#">
                 <h1>登录</h1>
-                <input type="email"
-                       placeholder="电子邮箱">
+                <input type="text"
+                       placeholder="用户名"
+                       v-model="sysUser.userName"
+                >
                 <input type="password"
-                       placeholder="密码">
-                <a href="#">忘记密码？</a>
-                <button @click.prevent="login">登录</button>
+                       placeholder="密码"
+                       v-model="sysUser.userPassword"
+                >
+                <button @click="login">登录</button>
 
               </form>
             </div>
@@ -88,6 +93,10 @@ export default {
   data: function () {
     return {
       isVerificationShow: false,
+      sysUser: {
+        userName: '',
+        userPassword: ''
+      },
       puzzleImgList: [
         require('../assets/img/puzzle_verification.jpg')
       ]

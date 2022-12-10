@@ -1,13 +1,11 @@
 package com.lts.outworld_elasticsearch.controller;
 
+import com.lts.outworld_elasticsearch.entity.LiveBorast;
 import com.lts.outworld_elasticsearch.entity.Question;
 import com.lts.outworld_elasticsearch.service.ElasticSearchService;
 import com.lts.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -24,8 +22,8 @@ public class LiveBorastController {
      * @param question 问题内容
      * @return 相关性最高的内容
      */
-    @GetMapping("/getElasticsearchBorast")
-    public R<List<Map<String,Object>>> getElasticsearchBorast(@RequestBody Question question){
+    @PostMapping("/getElasticsearchBorast")
+    public R<List<LiveBorast>> getElasticsearchBorast(@RequestBody Question question){
         try {
             return elasticSearchService.getInfoForLiveBorast(question.getPageNumber(),question.getQuestion());
         }

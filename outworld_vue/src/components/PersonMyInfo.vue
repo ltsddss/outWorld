@@ -1,28 +1,4 @@
-<script>
-export default {
-  name: 'PersonMyInfo',
-  data: function () {
-    return {
-      userInfo: {
-        uid: 'sile_8989898989',
-        nickName: '道乐菌',
-        realName: 'bobo',
-        manifesto: '在那之前，好好活着。',
-        sex: 0,
-        birth: new Date(),
-        tele: '',
-        email: '',
-        address: { province: '110000', city: '110000', area: '110101', town: null }
-      }
-    }
-  },
-  methods: {
-    onSubmit () {
-      console.log('submit form')
-    }
-  }
-}
-</script>
+
 
 <template>
   <div>
@@ -72,7 +48,7 @@ export default {
         </el-form-item>
         <el-form-item label="手机号码：">
           <el-input type="text"
-                    placeholder="请输入号码 亲~~"
+                    placeholder="请输入号码"
                     v-model="userInfo.tele"
                     maxlength="13"
                     show-word-limit
@@ -90,7 +66,31 @@ export default {
     </el-row>
   </div>
 </template>
-
+<script>
+export default {
+  name: 'PersonMyInfo',
+  data: function () {
+    return {
+      userInfo: {
+        uid: 'sile_8989898989',
+        nickName: '道乐菌',
+        realName: 'bobo',
+        manifesto: '在那之前，好好活着。',
+        sex: 0,
+        birth: new Date(),
+        tele: '',
+        email: '',
+        address: { province: '110000', city: '110000', area: '110101', town: null }
+      }
+    }
+  },
+  methods: {
+    onSubmit () {
+      console.log('submit form')
+    }
+  }
+}
+</script>
 <style scoped>
 .item-line {
   padding-top: 20px;

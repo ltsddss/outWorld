@@ -1,5 +1,9 @@
 package com.lts.utils;
 
+import org.springframework.cglib.beans.BeanMap;
+
+import java.util.Map;
+
 /**
  * @author 爆炸杰克
  * @create 2022/4/30

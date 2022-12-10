@@ -24,6 +24,13 @@ module.exports = {
         pathRewrite: {
           '^api': 'api'
         }
+      },
+      '/api/outworld_elasticsearch/elasticsearch/getElasticsearchBorast':{
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        pathRewrite: {
+          '^api': 'api'
+        }
       }
     },
 

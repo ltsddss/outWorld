@@ -8,13 +8,9 @@
           <div class="grid-content left">
             <img class="nav-img"
                  src="../assets/logo.gif"
-                 @click="goHome">
+                 @click="goLogin">
             <span class="web-span"
-                  @click="goHome">{{title}}</span>
-            <!-- <div>
-            <img src="../assets/img/icon.png"/>
-            <span class="nav-span">主站</span>
-          </div> -->
+                  @click="goLogin">{{title}}</span>
             <div class="nav-item">
               <span class="nav-span"
                     @click="goHome">首页</span>
@@ -23,11 +19,8 @@
               <span class="nav-span"
                     @click="goClassify">分类</span>
             </div>
-            <!-- <div class="nav-item">
-              <span class="nav-span">排行榜</span>
-            </div> -->
             <div class="nav-item">
-              <span class="nav-span">下载APP</span>
+              <span class="nav-span">排行</span>
             </div>
           </div>
         </el-col>
@@ -35,8 +28,8 @@
           <div class="grid-content right">
             <div class="nav-item">
               <el-input placeholder="请输入内容"
-                        suffix-icon="el-icon-search"
-                        v-model="searchContent">
+                        v-model="question.question">
+                <el-button slot="append" icon="el-icon-search" @click="selectLiveBorast"></el-button>
               </el-input>
             </div>
             <div class="nav-item">
@@ -113,7 +106,11 @@ export default {
   data () {
     return {
       title: 'SilenceHTML',
-      searchContent: ''
+      question: {
+        pageNumber:0,
+        question: ''
+      }
+
     }
   },
   methods: {
@@ -121,7 +118,7 @@ export default {
       this.$router.push('/login')
     },
     goHome: function () {
-      this.$router.push('/')
+      this.$router.push('/home')
     },
     goClassify: function () {
       this.$router.push('/classify')
@@ -144,6 +141,16 @@ export default {
     },
     goUpload: function () {
       this.$router.push('/upload')
+    },
+    selectLiveBorast:function (){
+      console.log("你进行了一次请求")
+      this.axios({
+        url:'/api/outworld_elasticsearch/elasticsearch/getElasticsearchBorast',
+        method:'post',
+        data:this.question
+      }).then(response=>{
+        this.$emit("handleSelect",response.data.data)
+      })
     }
   }
 }

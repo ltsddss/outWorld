@@ -5,6 +5,9 @@ import test from "../views/test";
 import login_new from "../views/login_new";
 import login from "../views/login";
 import mine from "../views/mine";
+import home from "../views/home";
+import SelectResult from "../views/SelectResult";
+import Classify from "../views/Classify";
 
 Vue.use(VueRouter)
 
@@ -13,6 +16,26 @@ const routes = [
     path: '/',
     name: 'login',
     component: login
+  },
+  {
+    path: '/select',
+    name: 'select',
+    component: SelectResult
+  },
+  {
+    path: '/classify',
+    name: 'classify',
+    component: Classify
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: login
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: home
   },
   {
     path: '/index',
