@@ -12,6 +12,9 @@ public class OutWorldAuthApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(OutWorldAuthApplication.class, args);
+        System.out.println("***************");
+        System.out.println("认证服务启动成功");
+        System.out.println("***************");
     }
 
 }

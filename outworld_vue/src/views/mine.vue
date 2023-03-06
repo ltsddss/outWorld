@@ -98,6 +98,13 @@
                       <span slot="title">{{pages[10].title}}</span>
                     </div>
                   </el-menu-item>
+                  <el-menu-item index="11"
+                                @click="changePage(11)">
+                    <div class="left-item">
+                      <i :class="pages[11].iconClass"></i>
+                      <span slot="title">{{pages[11].title}}</span>
+                    </div>
+                  </el-menu-item>
 
                 </el-menu>
               </div>
@@ -137,6 +144,7 @@ import PersonSecure from '../components/PersonSecure.vue'
 import PersonBlackList from '../components/PersonBlackList.vue'
 import PersonMySmoney from '../components/PersonMySmoney.vue'
 import PersonMyRecord from '../components/PersonMyRecord.vue'
+import PersonInfoForLive from "../components/PersonInfoForLive";
 export default {
   name: 'home',
   components: {
@@ -146,6 +154,7 @@ export default {
     PersonMyInfo,
     PersonHeadPicture,
     PersonSecure,
+    PersonInfoForLive,
     PersonBlackList,
     PersonMySmoney,
     PersonMyRecord
@@ -161,6 +170,7 @@ export default {
         { title: '我的信息', components: 'PersonMyInfo', iconClass: 'el-icon-tickets' },
         { title: '我的头像', components: 'PersonHeadPicture', iconClass: 'el-icon-s-custom' },
         { title: '账号安全', components: 'PersonSecure', iconClass: 'el-icon-lock' },
+        { title: '我的直播间', components: 'PersonInfoForLive', iconClass: 'el-icon-lock' },
         { title: '黑名单管理', components: 'PersonBlackList', iconClass: 'el-icon-close-notification' },
         { title: '我的硬币', components: 'PersonMySmoney', iconClass: 'el-icon-coin' },
         { title: '我的记录', components: 'PersonMyRecord', iconClass: 'el-icon-notebook-1' },

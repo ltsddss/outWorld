@@ -32,8 +32,9 @@ public class SysUserController {
      * @return 返回结果
      */
     @PostMapping("/register")
-    public R register(@RequestBody SysUser sysUser){
-        return R.ok();
+    public R<Integer> register(@RequestBody SysUser sysUser){
+        Integer registerUser = sysUserService.registerUser(sysUser);
+        return R.ok(registerUser);
     }
 
     /**

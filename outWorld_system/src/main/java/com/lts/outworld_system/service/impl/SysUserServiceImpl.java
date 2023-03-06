@@ -16,4 +16,9 @@ public class SysUserServiceImpl implements SysUserService {
     public SysUser userInfo(SysUser sysUser) {
         return sysUserDao.userInfo(sysUser);
     }
+
+    @Override
+    public Integer registerUser(SysUser sysUser) {
+        return sysUserDao.registerUser(sysUser);
+    }
 }

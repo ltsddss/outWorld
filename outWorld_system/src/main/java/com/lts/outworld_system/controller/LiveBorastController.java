@@ -15,11 +15,12 @@ public class LiveBorastController {
 
     /**
      * 新建直播间
+     *
      * @param liveBorast 直播间信息
      * @return 是否成功
      */
     @PostMapping("/insertLiveBorastInfo")
-    public R<String> insertLiveBorast(@RequestBody LiveBorast liveBorast){
+    public R<String> insertLiveBorast(@RequestBody LiveBorast liveBorast) {
 //        存库
         liveBorastService.insertLiveBorastInfo(liveBorast);
 
@@ -28,11 +29,11 @@ public class LiveBorastController {
 
     /**
      * 点击对应直播间的时候显示对应的信息(根据直播间的id查询)
+     *
      * @return
      */
     @GetMapping("/selectLiveBorast")
-    public R<LiveBorast> selectLiveBorast(@RequestBody LiveBorast liveBorast){
+    public R<LiveBorast> selectLiveBorast(@RequestBody LiveBorast liveBorast) {
         return R.ok(liveBorastService.liveBorastInfo(liveBorast).get(0));
     }
-
 }

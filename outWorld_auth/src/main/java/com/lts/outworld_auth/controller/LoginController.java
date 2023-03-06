@@ -35,4 +35,11 @@ public class LoginController {
         String token=JWTUtils.acquireJWT("令牌",login.getUserName(),login.getUserPassword());
         return R.ok(token);
     }
+
+    @PostMapping("/Register")
+    public R<Boolean> Register(@RequestBody LoginBody loginBody){
+//        注册接口
+        Boolean register = loginService.Register(loginBody.userName, loginBody.userPassword);
+        return R.ok(register);
+    }
 }

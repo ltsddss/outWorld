@@ -5,10 +5,12 @@ import com.lts.outworld_elasticsearch.entity.Question;
 import com.lts.outworld_elasticsearch.service.ElasticSearchService;
 import com.lts.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/elasticsearch")

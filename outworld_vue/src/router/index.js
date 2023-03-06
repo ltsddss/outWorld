@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import index from '../views/index'
 import test from "../views/test";
-import login_new from "../views/login_new";
 import login from "../views/login";
 import mine from "../views/mine";
 import home from "../views/home";

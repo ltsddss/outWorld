@@ -1,6 +1,10 @@
+
+
 spring:
   rabbitmq:
-    host: 101.133.149.79
+    host: 192.168.10.100
     port: 5672
-    username: admin
-    password: admin
+    username: guest
+    password: guest
+server:
+  port: 8082

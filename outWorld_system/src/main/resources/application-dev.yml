@@ -24,12 +24,19 @@ spring:
   #rabbitmq
   rabbitmq:
     port: 5672
-    username: admin
-    password: admin
-    host: 101.133.149.79
+    username: guest
+    password: guest
+    host: 192.168.10.100
   application:
     name: outworld-system
-
+#  thymeleaf
+  thymeleaf:
+    prefix: classpath:/templates/
+    encoding: UTF-8
+    cache: false
+    suffix: .html
+    servlet:
+      content-type: text/html
 eureka:
   client:
     service-url:

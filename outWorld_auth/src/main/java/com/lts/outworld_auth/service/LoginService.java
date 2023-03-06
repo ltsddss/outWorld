@@ -4,6 +4,7 @@ import com.lts.entity.SysUser;
 import com.lts.exception.ServiceException;
 import com.lts.feign.LoginFegin;
 import com.lts.entity.LoginInfo;
+import com.lts.outworld_auth.entity.LoginBody;
 import com.lts.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -41,5 +42,24 @@ public class LoginService {
         loginInfo.setUserName(sysuserResult.getData().getUserName());
         loginInfo.setUserPassword(sysuserResult.getData().getUserPassword());
         return loginInfo;
+    }
+
+    public Boolean Register(String username,String password){
+//        TODO: 判断输入是否合法
+        //        查询用户信息,是否已经注册过
+        R<SysUser> sysuserResult= loginFegin.getUserInfo(username);
+
+        if(null!=sysuserResult.getData()){
+//            并不存在该用户的信息
+            LoginInfo loginInfo=new LoginInfo();
+            loginInfo.setUserName(username);
+            loginInfo.setUserPassword(password);
+            R<Integer> register = loginFegin.Register(loginInfo);
+            if(1==register.getData()){
+//                注册成功
+                return true;
+            }
+        }
+        return false;
     }
 }

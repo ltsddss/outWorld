@@ -55,13 +55,6 @@
 
             </div>
             <div class="nav-item">
-              <el-badge :value="3"
-                        class="item">
-                <span class="nav-span"
-                      @click="goMessage">消息</span>
-              </el-badge>
-            </div>
-            <div class="nav-item">
               <el-badge :value="12"
                         class="item">
                 <span class="nav-span"
@@ -124,7 +117,7 @@ export default {
       this.$router.push('/classify')
     },
     goPersonCenter: function () {
-      this.$router.push('/person_center')
+      this.$router.push('/mine')
     },
     goHistory: function () {
       this.$router.push('/history')

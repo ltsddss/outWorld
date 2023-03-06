@@ -17,6 +17,16 @@ public class LoginFeginFactory implements FallbackFactory<LoginFegin> {
     @Override
     public LoginFegin create(Throwable cause) {
         log.error("用户服务调用失败:{}", cause.getMessage());
-        return username -> R.fail("获取用户失败:" + cause.getMessage());
+        return new LoginFegin() {
+            @Override
+            public R<SysUser> getUserInfo(String username) {
+                return R.fail("获取用户失败:" + cause.getMessage());
+            }
+
+            @Override
+            public R<Integer> Register(LoginInfo loginInfo) {
+                return R.fail("注册用户失败:" + cause.getMessage());
+            }
+        };
     }
 }

@@ -31,7 +31,7 @@
                        placeholder="密码"
                        v-model="sysUser.userPassword"
                 >
-                <button>注册</button>
+                <button @click="handleRegister()">注册</button>
               </form>
             </div>
             <div class="form-container sign-in-container">
@@ -112,8 +112,24 @@ export default {
       container.classList.add('right-panel-active')
     },
     handleSuccess () {
-      alert('验证成功了')
+      //拖拉图片验证成功之后向后台请求验证
+      setTimeout(() => {
+        this.axios({
+          url: '/api/outworld_auth/auth/login',
+          method: 'post',
+          data: this.sysUser
+        }).then((response) => {
+          console.log(response)
+          this.$router.push({path: this.redirect || '/home'})
+          this.loading = false
+        }).catch(() => {
+          this.loading = false
+        })
+      }, 1500)
       this.isVerificationShow = false
+    },
+    handleRegister(){
+
     },
     login () {
       this.isVerificationShow = true

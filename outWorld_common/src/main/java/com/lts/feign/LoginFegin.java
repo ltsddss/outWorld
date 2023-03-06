@@ -8,6 +8,8 @@ import com.lts.utils.R;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @FeignClient(contextId = "userService" ,value = ServiceNameContant.SYSTEMNAME,fallbackFactory = LoginFeginFactory.class)
 public interface LoginFegin {
@@ -16,4 +18,7 @@ public interface LoginFegin {
      */
     @GetMapping("/system/login/{username}")
     public R<SysUser> getUserInfo(@PathVariable("username") String username);
+
+    @PostMapping("/system/register")
+    public R<Integer> Register(@RequestBody LoginInfo loginInfo);
 }

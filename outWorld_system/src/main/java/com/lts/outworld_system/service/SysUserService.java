@@ -9,4 +9,11 @@ public interface SysUserService {
      * @return 用户信息
      */
     SysUser userInfo(SysUser sysUser);
+
+    /**
+     * 注册用户信息
+     * @param sysUser 用户信息
+     * @return 是否注册成功
+     */
+    Integer registerUser(SysUser sysUser);
 }
