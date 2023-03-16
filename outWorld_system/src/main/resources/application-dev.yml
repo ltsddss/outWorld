@@ -2,6 +2,9 @@ server:
   port: 8001
 
 spring:
+  #thymeleaf
+  mvc:
+    static-path-pattern: /static/**
   #mysql
   datasource:
     url: jdbc:mysql://localhost:3306/outworld_sys?useUnicode=true&characterEncoding=UTF-8&useSSL=false

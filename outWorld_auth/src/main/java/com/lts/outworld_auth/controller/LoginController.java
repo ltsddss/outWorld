@@ -26,10 +26,13 @@ public class LoginController {
      */
     @PostMapping("/login")
     public R<String> Login(@RequestBody LoginBody loginBody){
-        LoginInfo login = loginService.Login(loginBody.userName, loginBody.userPassword);
+        LoginInfo login = loginService.Login(loginBody.userName);
 //        判断密码是否正确
         if(!Objects.equals(MD5.encryptToMD5(loginBody.userPassword), login.getUserPassword())){
             throw new ServiceException("密码错误");
+        }
+        if(!Objects.equals("1",login.getUserStatus())){
+            throw new ServiceException("用户被禁用");
         }
 //        利用login来制作token
         String token=JWTUtils.acquireJWT("令牌",login.getUserName(),login.getUserPassword());

@@ -104,10 +104,16 @@ export default {
   },
   methods: {
     onSignIn: function () {
+      // 清空用户输入的内容
+      this.sysUser.userName=''
+      this.sysUser.userPassword=''
       let container = document.getElementById('dowebok')
       container.classList.remove('right-panel-active')
     },
     onSignUp: function () {
+      // 清空用户输入的内容
+      this.sysUser.userName=''
+      this.sysUser.userPassword=''
       let container = document.getElementById('dowebok')
       container.classList.add('right-panel-active')
     },
@@ -124,12 +130,21 @@ export default {
           this.loading = false
         }).catch(() => {
           this.loading = false
+          this.$message.error("登录失败")
         })
       }, 1500)
       this.isVerificationShow = false
     },
     handleRegister(){
-
+      this.axios({
+        url: '/api/outworld_auth/auth/Register',
+        method: 'post',
+        data: this.sysUser
+      }).then((response)=>{
+        this.$message.info("注册成功")
+      }).catch(()=>{
+        this.$message.error("注册失败")
+      })
     },
     login () {
       this.isVerificationShow = true

@@ -13,4 +13,11 @@ public interface SysMenuDao {
      * @return 所有菜单结构
      */
     public List<SysMenu> selectMenu(SysMenu sysMenu);
+
+    /**
+     * 新增菜单结构
+     * @param sysMenu 要新增菜单的信息
+     * @return 0、1
+     */
+    public int insertMenu(SysMenu sysMenu);
 }

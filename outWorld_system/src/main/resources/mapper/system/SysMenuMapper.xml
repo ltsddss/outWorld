@@ -35,4 +35,26 @@
             <if test="type != null and type != ''">and TYPE=#{type}</if>
         </where>
     </select>
+
+    <insert id="insertMenu" parameterType="com.lts.outworld_system.entity.SysMenu">
+        insert into outworld_sys.sys_menu
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="menuName != null">menuName,</if>
+            <if test="parentId != null">parentId,</if>
+            <if test="orderNum != null">orderNum,</if>
+            <if test="path != null">path,</if>
+            <if test="type != null">type,</if>
+            <if test="icon != null">icon,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="menuName != null">#{menuName},</if>
+            <if test="parentId != null">#{parentId},</if>
+            <if test="orderNum != null">#{orderNum},</if>
+            <if test="path != null">#{path},</if>
+            <if test="type != null">#{type},</if>
+            <if test="icon != null">#{icon},</if>
+        </trim>
+    </insert>
 </mapper>

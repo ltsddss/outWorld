@@ -9,4 +9,5 @@ import lombok.NoArgsConstructor;
 public class LoginInfo {
     public String userName;
     public String userPassword;
+    public String userStatus;
 }

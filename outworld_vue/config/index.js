@@ -11,7 +11,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api/outworld_auth/auth/login': {
+      '/api/outworld_auth/auth/**': {
         target: 'http://localhost:8080',
         changeOrigin: true,
         pathRewrite: {

@@ -7,7 +7,6 @@
     <resultMap id="userInfo" type="com.lts.outworld_system.entity.SysUser">
         <result property="userId" column="user_id"/>
         <result property="userName" column="user_name"/>
-        <result property="userPassword" column="user_password"/>
         <result property="nickName" column="nick_name"/>
         <result property="userType" column="user_type"/>
         <result property="email" column="email"/>
@@ -15,16 +14,62 @@
         <result property="gender" column="gender"/>
         <result property="avatar" column="avatar"/>
         <result property="userPassword" column="user_password"/>
+
+        <result property="userLoginStatus" column="user_login_status"/>
+        <result property="userStatus" column="user_status"/>
+        <result property="userLoginIp" column="user_loginIp"/>
+        <result property="loginDate" column="login_date"/>
+        <result property="createBy" column="create_by"/>
         <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="remark" column="remark"/>
     </resultMap>
     
     <select id="userInfo" parameterType="String" resultMap="userInfo">
-        select user_id, user_name, nick_name, user_type, user_password, create_time
+        select user_id, user_name, nick_name, user_type,user_status, user_password, create_time
         from outworld_sys.sys_user user
         where user_name = #{userName}
     </select>
 
     <insert id="registerUser" parameterType="com.lts.outworld_system.entity.SysUser">
-        insert into outworld_sys.sys_user(user_name,user_password) value (#{userName},#{userPassword})
+        insert into outworld_sys.sys_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="userName != null">user_name,</if>
+            <if test="nickName != null">nick_name,</if>
+            <if test="userType != null">user_type,</if>
+            <if test="email != null">email,</if>
+            <if test="phoneNumber != null">phone_number,</if>
+            <if test="gender != null">gender,</if>
+            <if test="avatar != null">avatar,</if>
+            <if test="userPassword != null">user_password,</if>
+            <if test="userLoginStatus != null">user_login_status,</if>
+            <if test="userStatus != null">user_status,</if>
+            <if test="userLoginIp != null">user_login_ip,</if>
+            <if test="loginDate != null">login_date,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="userName != null">#{userName},</if>
+            <if test="nickName != null">#{nickName},</if>
+            <if test="userType != null">#{userType},</if>
+            <if test="email != null">#{email},</if>
+            <if test="phoneNumber != null">#{phoneNumber},</if>
+            <if test="gender != null">#{gender},</if>
+            <if test="avatar != null">#{avatar},</if>
+            <if test="userPassword != null">#{userPassword},</if>
+            <if test="userLoginStatus != null">#{userLoginStatus},</if>
+            <if test="userStatus != null">#{userStatus},</if>
+            <if test="userLoginIp != null">#{userLoginIp},</if>
+            <if test="loginDate != null">#{loginDate},</if>
+            <if test="createBy != null">#{create_by},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+        </trim>
     </insert>
 </mapper>

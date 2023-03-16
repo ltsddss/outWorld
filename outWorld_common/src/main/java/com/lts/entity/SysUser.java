@@ -16,7 +16,7 @@ public class SysUser {
     /**
      * 用户ID
      */
-    private Long userId;
+    private String userId;
 
     /**
      * 用户账号
@@ -58,6 +58,11 @@ public class SysUser {
     private String userPassword;
 
     /**
+     * 用户在线状态(0 离线，1在线)
+     */
+    private Integer userLoginStatus;
+
+    /**
      * 帐号状态（0正常 1停用 2删除）
      */
     private String userStatus;
@@ -71,6 +76,11 @@ public class SysUser {
      * 最后登录时间
      */
     private Date loginDate;
+
+    /**
+     * 创建人
+     */
+    private Date createBy;
 
     /**
      * 创建时间

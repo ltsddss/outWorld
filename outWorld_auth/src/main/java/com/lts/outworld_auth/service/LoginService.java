@@ -16,11 +16,10 @@ public class LoginService {
     public LoginFegin loginFegin;
     /**
      * 远程调用system模块的登录接口完成登录（TODO：之后写授权与认证）
-     * @param username 用户名
-     * @param password 密码
+     * @param username 用户
      * @return 用户信息
      */
-    public LoginInfo Login(String username,String password){
+    public LoginInfo Login(String username){
         //TODO: 之后放开
 ////        判断username与password是否是数字,字符和特殊符号的组合
 //        if(Stringutils.isTrue(username)&&Stringutils.isTrue(password)){
@@ -41,6 +40,7 @@ public class LoginService {
         LoginInfo loginInfo=new LoginInfo();
         loginInfo.setUserName(sysuserResult.getData().getUserName());
         loginInfo.setUserPassword(sysuserResult.getData().getUserPassword());
+        loginInfo.setUserStatus(sysuserResult.getData().getUserStatus());
         return loginInfo;
     }
 
@@ -49,7 +49,7 @@ public class LoginService {
         //        查询用户信息,是否已经注册过
         R<SysUser> sysuserResult= loginFegin.getUserInfo(username);
 
-        if(null!=sysuserResult.getData()){
+        if(null==sysuserResult.getData()){
 //            并不存在该用户的信息
             LoginInfo loginInfo=new LoginInfo();
             loginInfo.setUserName(username);

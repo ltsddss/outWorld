@@ -6,16 +6,6 @@ spring:
     gateway:
       routes:
 #
-        - id: test_router
-          uri: https://www.baidu.com
-          predicates:
-            - Query=url,baidu
-        - id: test_member
-          uri: lb://outworld-member
-          predicates:
-            - Path=/api/outworld_member/**
-          filters:
-            - RewritePath=/api/(?<segment>.*),/$\{segment}
         - id: outworld_auth
           uri: lb://outworld-auth
           predicates:

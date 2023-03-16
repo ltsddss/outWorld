@@ -20,9 +20,7 @@ public class SysUserController {
      */
     @GetMapping("/login/{username}")
     public R<SysUser> login(@PathVariable("username") String username){
-        SysUser sysUser=new SysUser();
-        sysUser.setUserName(username);
-        SysUser userInfo = sysUserService.userInfo(sysUser);
+        SysUser userInfo = sysUserService.userInfo(username);
         return R.ok(userInfo);
     }
 

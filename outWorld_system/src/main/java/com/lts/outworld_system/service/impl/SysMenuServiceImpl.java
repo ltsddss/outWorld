@@ -34,6 +34,11 @@ public class SysMenuServiceImpl implements SysMenuService {
         }).collect(Collectors.toList());
     }
 
+    @Override
+    public int insertMenu(SysMenu sysMenu) {
+        return sysMenuDao.insertMenu(sysMenu);
+    }
+
     /**
      * 递归显示所有的子菜单
      * @return 子菜单

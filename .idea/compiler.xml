@@ -7,13 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="outWorld_manage" />
-        <module name="outWorld_moudles" />
         <module name="outWorld_eureka" />
         <module name="outWorld_auth" />
         <module name="outWorld_rabbitMq" />
         <module name="outWorld_system" />
         <module name="outWorld_common" />
+        <module name="outWorld_manage" />
+        <module name="outWorld_moudles" />
         <module name="outWorld_getway" />
         <module name="outWorld_elasticsearch" />
       </profile>
