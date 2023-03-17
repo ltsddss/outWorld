@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50723
 File Encoding         : 65001
 
-Date: 2022-11-24 17:05:45
+Date: 2023-03-17 09:04:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -40,6 +40,43 @@ INSERT INTO `live_borast` VALUES ('1', null, '0', '0', '0', null, '1', null, '1'
 INSERT INTO `live_borast` VALUES ('2', '/test', '测试', '测试', 'admin', '0', '0', '123456', '0', '0');
 
 -- ----------------------------
+-- Table structure for sys_menu
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_menu`;
+CREATE TABLE `sys_menu` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '菜单id',
+  `MENUNAME` varchar(200) DEFAULT NULL COMMENT '菜单名称',
+  `PARENTID` bigint(20) DEFAULT NULL COMMENT '父菜单id',
+  `ORDERNUM` int(3) DEFAULT NULL COMMENT '显示顺序',
+  `PATH` varchar(200) DEFAULT NULL COMMENT '路由地址',
+  `TYPE` int(11) DEFAULT NULL COMMENT '类型   0：目录   1：菜单   2：按钮',
+  `ICON` varchar(50) DEFAULT NULL COMMENT '菜单图标',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_menu
+-- ----------------------------
+INSERT INTO `sys_menu` VALUES ('1', '系统管理', '0', '0', 'system', '0', null);
+INSERT INTO `sys_menu` VALUES ('2', '用户管理', '1', '0', 'user', '0', null);
+INSERT INTO `sys_menu` VALUES ('3', '角色管理', '1', '1', 'role', '0', null);
+INSERT INTO `sys_menu` VALUES ('4', '菜单管理', '1', '2', 'menu', '0', null);
+INSERT INTO `sys_menu` VALUES ('5', '直播间管理', '0', '1', 'liveborast', '0', null);
+
+-- ----------------------------
+-- Table structure for sys_role_menu
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_role_menu`;
+CREATE TABLE `sys_role_menu` (
+  `ID` bigint(20) NOT NULL COMMENT 'ID',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色菜单表';
+
+-- ----------------------------
+-- Records of sys_role_menu
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for sys_user
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user`;
@@ -53,6 +90,7 @@ CREATE TABLE `sys_user` (
   `gender` int(1) DEFAULT NULL COMMENT '性别',
   `avatar` varchar(100) DEFAULT NULL COMMENT '头像地址',
   `user_password` varchar(100) NOT NULL COMMENT '密码',
+  `user_login_status` varchar(1) DEFAULT NULL,
   `user_status` varchar(1) DEFAULT NULL COMMENT '用户状态（0禁用），（1正常），（2删除）',
   `user_login_ip` varchar(255) DEFAULT NULL COMMENT '最后登录ip',
   `login_date` datetime DEFAULT NULL COMMENT '最后登录时间',
@@ -66,4 +104,20 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('0', 'admin', '超级管理员', '0', null, null, null, null, 'c4ca4238a0b923820dcc509a6f75849b', '0', null, null, null, '2022-11-14 09:57:36', '2022-11-14 09:57:39', '超级管理员');
+INSERT INTO `sys_user` VALUES ('0', 'admin', '超级管理员', '0', null, null, null, null, 'c4ca4238a0b923820dcc509a6f75849b', null, '1', null, null, null, '2022-11-14 09:57:36', '2022-11-14 09:57:39', '超级管理员');
+INSERT INTO `sys_user` VALUES ('6f55489d-f9cf-4ab2-979d-05cd6bd60938', '123', '会员49611000', null, null, null, null, null, '202cb962ac59075b964b07152d234b70', null, '1', null, null, null, '2023-03-16 14:32:44', null, null);
+
+-- ----------------------------
+-- Table structure for sys_user_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_user_role`;
+CREATE TABLE `sys_user_role` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `USERID` bigint(20) DEFAULT NULL COMMENT '用户id',
+  `ROLEID` bigint(20) DEFAULT NULL COMMENT '角色id',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户角色表';
+
+-- ----------------------------
+-- Records of sys_user_role
+-- ----------------------------

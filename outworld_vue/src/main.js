@@ -11,7 +11,6 @@ import VueVideoPlayer from 'vue-video-player'
 import 'video.js/dist/video-js.css'
 import 'videojs-flash'
 
-
 Vue.use(VueVideoPlayer)
 Vue.config.productionTip = false
 Vue.prototype.$axios=axios;

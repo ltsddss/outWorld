@@ -7,6 +7,7 @@ import mine from "../views/mine";
 import home from "../views/home";
 import SelectResult from "../views/SelectResult";
 import Classify from "../views/Classify";
+import liveBorast from "../views/liveBorast";
 
 Vue.use(VueRouter)
 
@@ -50,6 +51,11 @@ const routes = [
     path: '/test',
     name: 'name',
     component: test
+  },
+  {
+    path: '/liveBoast',
+    name: 'name',
+    component: liveBorast
   }
 ]
 
