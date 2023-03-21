@@ -1,3 +1,7 @@
+<!--
+废弃
+@See outworld_vue/src/views/liveBorast/index.vue
+-->
 <template>
   <div>
     <div>

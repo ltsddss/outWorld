@@ -18,14 +18,14 @@ module.exports = {
           '^api': 'api'
         }
       },
-      '/api/outworld_system/elasticsearch/insertLiveBorastInfo':{
+      '/api/outworld_system/**':{
         target: 'http://localhost:8080',
         changeOrigin: true,
         pathRewrite: {
           '^api': 'api'
         }
       },
-      '/api/outworld_elasticsearch/elasticsearch/getElasticsearchBorast':{
+      '/api/outworld_elasticsearch/**':{
         target: 'http://localhost:8080',
         changeOrigin: true,
         pathRewrite: {

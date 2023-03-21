@@ -1,3 +1,42 @@
+<template>
+  <el-container>
+    <!-- header -->
+    <el-header style="height:auto">
+      <nav-head :user="user"></nav-head>
+      <carousel :carousels="carousels"></carousel>
+      <nav-bar></nav-bar>
+    </el-header>
+    <!-- main -->
+    <el-main>
+      <el-row class="common-content-row">
+        <el-col>
+          <div>
+            <p></p>
+          </div>
+        </el-col>
+        <el-col>
+          <div class="common-content">
+            <!-- 漫画推荐 -->
+            <recommond :recommondItems="recommondItems"
+                       :rankinglist="rankinglist"></recommond>
+            <!-- 更新表 -->
+            <update-table :updateItems="updateItems"></update-table>
+          </div>
+        </el-col>
+        <el-col>
+          <div>
+            <p></p>
+          </div>
+        </el-col>
+      </el-row>
+    </el-main>
+    <!-- footer -->
+    <el-footer style="height:auto">
+      <footer-bar></footer-bar>
+    </el-footer>
+  </el-container>
+
+</template>
 <script>
 // @ is an alias to /src
 import HelloWorld from '../components/HelloWorld.vue'
@@ -180,47 +219,6 @@ export default {
   }
 }
 </script>
-
-<template>
-  <el-container>
-    <!-- header -->
-    <el-header style="height:auto">
-      <nav-head :user="user"></nav-head>
-      <carousel :carousels="carousels"></carousel>
-      <nav-bar></nav-bar>
-    </el-header>
-    <!-- main -->
-    <el-main>
-      <el-row class="common-content-row">
-        <el-col>
-          <div>
-            <p></p>
-          </div>
-        </el-col>
-        <el-col>
-          <div class="common-content">
-            <!-- 漫画推荐 -->
-            <recommond :recommondItems="recommondItems"
-                       :rankinglist="rankinglist"></recommond>
-            <!-- 更新表 -->
-            <update-table :updateItems="updateItems"></update-table>
-          </div>
-        </el-col>
-        <el-col>
-          <div>
-            <p></p>
-          </div>
-        </el-col>
-      </el-row>
-    </el-main>
-    <!-- footer -->
-    <el-footer style="height:auto">
-      <footer-bar></footer-bar>
-    </el-footer>
-  </el-container>
-
-</template>
-
 <style scoped>
 @import "../assets/css/common.css";
 </style>

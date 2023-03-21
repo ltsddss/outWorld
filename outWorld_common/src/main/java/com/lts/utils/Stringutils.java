@@ -1,5 +1,7 @@
 package com.lts.utils;
 
+import com.lts.xss.HTMLFilter;
+import com.lts.xss.SQLFilter;
 import org.springframework.cglib.beans.BeanMap;
 
 import java.util.Map;
@@ -49,47 +51,23 @@ public class Stringutils {
         return digit!=0&&charac!=0&&teshu!=0;
     }
 
-//    对传来的IP地址进行处理
-
-    public static String solutionIP(String ip){
-//        获取第一次出现cip的位置,第一个"出现到第二个"结束切出来
-        int temp=0;
-        int start=0;
-        int end=0;
-        for(int i=0;i<ip.length();i++){
-            if(ip.charAt(i)=='\"'){
-                temp++;
-                if(temp==3){
-                    start=i+1;
-                }
-                if (temp==4){
-                    end=i;
-                    break;
-                }
-            }
-        }
-
-        return ip.substring(start,end);
+    /**
+     * 判断用户的输入是否合法
+     * @return true/false
+     */
+    public static boolean legalString(String s){
+//        TODO: 之后要具体的做非法字符的替换
+        return true;
     }
 
-    public static String solutionCity(String city){
-//        获取第一次出现cip的位置,第一个"出现到第二个"结束切出来
-        int temp=0;
-        int start=0;
-        int end=0;
-        for(int i=0;i<city.length();i++){
-            if(city.charAt(i)=='\"'){
-                temp++;
-                if(temp==11){
-                    start=i+1;
-                }
-                if (temp==12){
-                    end=i;
-                    break;
-                }
-            }
-        }
+    /**
+     * 判断数字是否合法
+     * @param num
+     * @return
+     */
+    public static boolean legalString(Integer num){
+//        TODO: 之后要具体的做非法字符的替换
 
-        return city.substring(start,end);
+        return true;
     }
 }

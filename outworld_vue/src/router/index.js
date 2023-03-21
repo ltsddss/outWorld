@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import index from '../views/index'
+import testIndex from '../views/test/index'
 import test from "../views/test";
 import login from "../views/login";
 import mine from "../views/mine";
@@ -50,7 +51,7 @@ const routes = [
   {
     path: '/test',
     name: 'name',
-    component: test
+    component: testIndex
   },
   {
     path: '/liveBoast',

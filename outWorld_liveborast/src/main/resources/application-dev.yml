@@ -1,0 +1,49 @@
+server:
+  port: 8001
+
+spring:
+  #mysql
+  datasource:
+    url: jdbc:mysql://localhost:3306/outworld_liveborast?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 419253381
+    driver-class-name: com.mysql.jdbc.Driver
+  #redis
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 20000ms
+    lettuce:
+      pool:
+        max-active: 1000
+        max-wait: -1ms
+        max-idle: 10
+        min-idle: 5
+  #rabbitmq
+  rabbitmq:
+    port: 5672
+    username: guest
+    password: guest
+    host: 192.168.10.100
+  application:
+    name: outworld-system
+  #  thymeleaf
+  thymeleaf:
+    prefix: classpath:/templates/
+    encoding: UTF-8
+    cache: false
+    suffix: .html
+    servlet:
+      content-type: text/html
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+# MyBatis
+mybatis:
+  mapperLocations: classpath*:mapper/**/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

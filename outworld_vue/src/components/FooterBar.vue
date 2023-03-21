@@ -15,9 +15,9 @@ export default {
       <p></p>
     </el-col>
 
-    <el-col :span="16">
+    <el-col :span="25">
       <el-row>
-        <el-col :span="5"
+        <el-col :span="30"
                 class="footer-logo">
           <img class="footer-img"
                src="../assets/logo.gif"
@@ -25,22 +25,22 @@ export default {
                height="68px" />
           <span class="footer-title">{{footerTitle}}</span>
         </el-col>
-        <el-col :span="7">
-          <el-row>
-            <el-col :span="12"
-                    class="footer-word">关于我们</el-col>
-            <el-col :span="12"
-                    class="footer-word">联系我们</el-col>
-          </el-row>
-          <el-row>
-            <el-col :span="12"
-                    class="footer-word">友情链接</el-col>
-            <el-col :span="12"
-                    class="footer-word">加入我们</el-col>
-          </el-row>
-        </el-col>
+
         <el-col :span="12">
-          <div class="divider"></div>
+          <div class="divider"><el-col :span="7">
+            <el-row>
+              <el-col :span="12"
+                      class="footer-word">关于我们</el-col>
+              <el-col :span="12"
+                      class="footer-word">联系我们</el-col>
+            </el-row>
+            <el-row>
+              <el-col :span="12"
+                      class="footer-word">友情链接</el-col>
+              <el-col :span="12"
+                      class="footer-word">加入我们</el-col>
+            </el-row>
+          </el-col></div>
         </el-col>
       </el-row>
     </el-col>
@@ -78,7 +78,7 @@ export default {
   padding: 7px;
 }
 .divider {
-  width: 1px;
+  width: 500px;
   height: 88px;
   background-color: hsla(0, 0%, 100%, 0.2);
 }

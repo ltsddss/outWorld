@@ -10,6 +10,7 @@
         <module name="outWorld_eureka" />
         <module name="outWorld_auth" />
         <module name="outWorld_rabbitMq" />
+        <module name="outWorld_liveborast" />
         <module name="outWorld_system" />
         <module name="outWorld_common" />
         <module name="outWorld_manage" />
@@ -34,6 +35,7 @@
       <module name="outWorld_elasticsearch" options="-parameters" />
       <module name="outWorld_eureka" options="-parameters" />
       <module name="outWorld_getway" options="-parameters" />
+      <module name="outWorld_liveborast" options="-parameters" />
       <module name="outWorld_manage" options="-parameters" />
       <module name="outWorld_moudles" options="-parameters" />
       <module name="outWorld_rabbitMq" options="-parameters" />

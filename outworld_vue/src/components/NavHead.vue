@@ -98,7 +98,7 @@ export default {
   props: ['user'],
   data () {
     return {
-      title: 'SilenceHTML',
+      title: '小小',
       question: {
         pageNumber:0,
         question: ''

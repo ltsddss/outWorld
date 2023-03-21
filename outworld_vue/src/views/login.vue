@@ -118,7 +118,7 @@ export default {
       container.classList.add('right-panel-active')
     },
     handleSuccess () {
-      //拖拉图片验证成功之后向后台请求验证
+      //拖拉图片验证成功之后向后台请求验证(前端人机验证)
       setTimeout(() => {
         this.axios({
           url: '/api/outworld_auth/auth/login',
