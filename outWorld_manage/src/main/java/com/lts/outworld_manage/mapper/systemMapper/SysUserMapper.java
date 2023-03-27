@@ -1,10 +1,10 @@
-package com.lts.outworld_manage.dao;
+package com.lts.outworld_manage.mapper.systemMapper;
 
-import com.lts.outworld_manage.entity.SysUser;
+import com.lts.outworld_manage.entity.system.SysUser;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface SysUserDao {
+public interface SysUserMapper {
     /**
      * 根据用户名查询用户信息（去掉用户状态是2的用户）
      * @param username 用户名

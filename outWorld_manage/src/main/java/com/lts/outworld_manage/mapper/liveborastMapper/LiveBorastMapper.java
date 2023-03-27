@@ -1,12 +1,12 @@
-package com.lts.outworld_manage.dao;
+package com.lts.outworld_manage.mapper.liveborastMapper;
 
-import com.lts.outworld_manage.entity.LiveBorast;
+import com.lts.outworld_manage.entity.liveborast.LiveBorast;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 @Mapper
-public interface LiveBorastDao {
+public interface LiveBorastMapper {
 
     /**
      * 查询直播间信息

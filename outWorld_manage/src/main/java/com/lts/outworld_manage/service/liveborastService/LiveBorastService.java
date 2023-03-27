@@ -1,6 +1,6 @@
-package com.lts.outworld_manage.service;
+package com.lts.outworld_manage.service.liveborastService;
 
-import com.lts.outworld_manage.entity.LiveBorast;
+import com.lts.outworld_manage.entity.liveborast.LiveBorast;
 
 import java.util.List;
 

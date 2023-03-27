@@ -1,6 +1,6 @@
-package com.lts.outworld_manage.service;
+package com.lts.outworld_manage.service.system;
 
-import com.lts.outworld_manage.entity.SysUser;
+import com.lts.outworld_manage.entity.system.SysUser;
 
 public interface SysUserService {
     /**

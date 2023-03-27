@@ -1,10 +1,9 @@
-package com.lts.outworld_manage.service.impl;
+package com.lts.outworld_manage.service.liveborastService.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.lts.outworld_manage.dao.LiveBorastDao;
-import com.lts.outworld_manage.entity.LiveBorast;
-import com.lts.outworld_manage.service.LiveBorastService;
-import com.lts.outworld_rabbitmq.config.RabbitConfig;
+import com.lts.outworld_manage.mapper.liveborastMapper.LiveBorastMapper;
+import com.lts.outworld_manage.entity.liveborast.LiveBorast;
+import com.lts.outworld_manage.service.liveborastService.LiveBorastService;
 import com.lts.outworld_rabbitmq.constant.RabbitMqConstant;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.elasticsearch.action.bulk.BulkRequest;
@@ -18,14 +17,13 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.List;
 
 @Service
 public class LiveBorastServiceImpl implements LiveBorastService {
 
     @Autowired
-    private LiveBorastDao liveBorastDao;
+    private LiveBorastMapper liveBorastDao;
 
     @Autowired
     private RabbitTemplate rabbitTemplate;

@@ -1,6 +1,6 @@
 package com.lts.outworld_manage.controller;
 
-import com.lts.outworld_manage.entity.SysUser;
+import com.lts.outworld_manage.entity.system.SysUser;
 import com.lts.utils.R;
 import org.springframework.web.bind.annotation.*;
 

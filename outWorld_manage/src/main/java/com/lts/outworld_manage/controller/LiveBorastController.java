@@ -1,6 +1,6 @@
 package com.lts.outworld_manage.controller;
 
-import com.lts.outworld_manage.service.LiveBorastService;
+import com.lts.outworld_manage.service.liveborastService.LiveBorastService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

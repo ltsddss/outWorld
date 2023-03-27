@@ -1,4 +1,4 @@
-package com.lts.outworld_manage.entity;
+package com.lts.outworld_manage.entity.system;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +16,7 @@ public class SysUser {
     /**
      * 用户ID
      */
-    private Long userId;
+    private String userId;
 
     /**
      * 用户账号
@@ -60,7 +60,7 @@ public class SysUser {
     /**
      * 用户在线状态(0 离线，1在线)
      */
-    private int user_login_status;
+    private Integer userLoginStatus;
 
     /**
      * 帐号状态（0正常 1停用 2删除）
@@ -76,6 +76,11 @@ public class SysUser {
      * 最后登录时间
      */
     private Date loginDate;
+
+    /**
+     * 创建人
+     */
+    private Date createBy;
 
     /**
      * 创建时间

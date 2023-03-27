@@ -1,4 +1,4 @@
-package com.lts.outworld_manage.entity;
+package com.lts.outworld_manage.entity.liveborast;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
