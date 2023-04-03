@@ -1,4 +1,4 @@
-package com.lts.outworld_manage.controller;
+package com.lts.outworld_manage.controller.liveBorastController;
 
 import com.lts.outworld_manage.service.liveborastService.LiveBorastService;
 import org.springframework.beans.factory.annotation.Autowired;

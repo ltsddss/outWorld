@@ -1,7 +1,10 @@
-package com.lts.outworld_manage.controller;
+package com.lts.outworld_manage.controller.systemController;
 
 import com.lts.outworld_manage.entity.system.SysUser;
+import com.lts.outworld_manage.service.system.SysUserService;
 import com.lts.utils.R;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RestController("/mapper/manage")
@@ -9,6 +12,8 @@ public class SysUserController {
     /**
      * 实现对于sysUser表的增删查改
      */
+    @Autowired
+    private SysUserService sysUserService;
 
     /**
      * 根据username查询用户信息
@@ -16,8 +21,10 @@ public class SysUserController {
      * @return 返回用户的信息
      */
     @GetMapping("/UserInfo")
-    public R getSysUserInfo(@RequestBody SysUser sysUser){
-        return R.ok();
+    public String getSysUserInfo(@RequestBody SysUser sysUser, Model model){
+        SysUser userInfoList = sysUserService.selectUserInfoList(sysUser);
+        model.addAttribute("userInfo",userInfoList);
+        return "system/systemUserInfo/index";
     }
 
     /**

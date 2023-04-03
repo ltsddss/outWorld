@@ -63,10 +63,10 @@ export default {
       user: null,
       // 由后台传入cards不需要require，后期修改
       carousels: [
-        require('../assets/img/carousel1.png'),
-        require('../assets/img/carousel2.png'),
-        require('../assets/img/carousel3.png'),
-        require('../assets/img/carousel4.png')
+        'http://192.168.10.100:8080/lives/livestream.m3u8',
+        'http://192.168.10.100:8080/lives/livestream.m3u8',
+        'http://192.168.10.100:8080/lives/livestream.m3u8',
+        'http://192.168.10.100:8080/lives/livestream.m3u8',
       ],
       recommondItems: [
         { name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常' },

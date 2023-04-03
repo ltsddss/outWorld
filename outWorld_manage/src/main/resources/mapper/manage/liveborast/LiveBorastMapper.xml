@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lts.outworld_system.dao.LiveBorastDao">
 
-    <resultMap id="LiveBorast" type="com.lts.outworld_system.entity.LiveBorast">
+    <resultMap id="LiveBorast" type="com.lts.outworld_manage.entity.liveborast.LiveBorast">
         <result property="borastId" column="borast_id"/>
         <result property="borastImg" column="borast_img"/>
         <result property="borastIntroduce" column="borast_introduce"/>
@@ -20,7 +20,7 @@
         <result property="borastAdress" column="borast_adress"/>
     </resultMap>
 
-    <select id="liveBorastInfo" resultMap="LiveBorast" parameterType="com.lts.outworld_system.entity.LiveBorast">
+    <select id="liveBorastInfo" resultMap="LiveBorast" parameterType="com.lts.outworld_manage.entity.liveborast.LiveBorast">
         select borast_id,
         borast_img,
         borast_introduce,
@@ -52,7 +52,7 @@
         </where>
     </select>
 
-    <insert id="insertLiveBorastInfo" parameterType="com.lts.outworld_system.entity.LiveBorast">
+    <insert id="insertLiveBorastInfo" parameterType="com.lts.outworld_manage.entity.liveborast.LiveBorast">
         insert into outworld_sys.live_borast
         values (#{borastId},
                 #{borastImg},

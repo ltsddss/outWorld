@@ -126,6 +126,7 @@ export default {
           data: this.sysUser
         }).then((response) => {
           console.log(response)
+          //登录成功，存入登录信息
           this.$router.push({path: this.redirect || '/home'})
           this.loading = false
         }).catch(() => {

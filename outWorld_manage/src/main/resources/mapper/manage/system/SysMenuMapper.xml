@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lts.outworld_manage.mapper.systemMapper.SysMenuMapper">
+    <resultMap id="Menu" type="com.lts.outworld_manage.entity.system.SysMenu">
+        <result property="id" column="id"/>
+        <result property="menuName" column="menuName"/>
+        <result property="parentId" column="parentId"/>
+        <result property="orderNum" column="orderNum"/>
+        <result property="path" column="path"/>
+        <result property="type" column="type"/>
+        <result property="icon" column="icon"/>
+    </resultMap>
+
+    <sql id="selectMenuVo">
+        select ID       as id,
+               MENUNAME as menuName,
+               PARENTID as parentId,
+               ORDERNUM as orderNum,
+               `PATH`   as path,
+               TYPE     as type,
+               ICON     as icon
+        from outworld_sys.sys_menu
+    </sql>
+
+    <!--    查询菜单信息-->
+    <select id="selectMenu" parameterType="com.lts.outworld_manage.entity.system.SysMenu" resultMap="Menu">
+        <include refid="selectMenuVo"/>
+        <where>
+            <if test="menuName != null and menuName != ''">and MENUNAME=#{menuName}</if>
+            <if test="parentId != null and parentId != ''">and PARENTID=#{parentId}</if>
+            <if test="orderNum != null and orderNum != ''">and ORDERNUM=#{orderNum}</if>
+            <if test="path != null and path != ''">and `PATH`=#{path}</if>
+            <if test="type != null and type != ''">and TYPE=#{type}</if>
+        </where>
+    </select>
+
+    <insert id="insertMenu" parameterType="com.lts.outworld_manage.entity.system.SysMenu">
+        insert into outworld_sys.sys_menu
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="menuName != null">menuName,</if>
+            <if test="parentId != null">parentId,</if>
+            <if test="orderNum != null">orderNum,</if>
+            <if test="path != null">path,</if>
+            <if test="type != null">type,</if>
+            <if test="icon != null">icon,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="menuName != null">#{menuName},</if>
+            <if test="parentId != null">#{parentId},</if>
+            <if test="orderNum != null">#{orderNum},</if>
+            <if test="path != null">#{path},</if>
+            <if test="type != null">#{type},</if>
+            <if test="icon != null">#{icon},</if>
+        </trim>
+    </insert>
+</mapper>

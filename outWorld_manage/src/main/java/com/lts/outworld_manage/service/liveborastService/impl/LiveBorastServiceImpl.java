@@ -23,7 +23,7 @@ import java.util.List;
 public class LiveBorastServiceImpl implements LiveBorastService {
 
     @Autowired
-    private LiveBorastMapper liveBorastDao;
+    private LiveBorastMapper liveBorastMapper;
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
@@ -45,7 +45,7 @@ public class LiveBorastServiceImpl implements LiveBorastService {
             CreateIndexRequest createIndexRequest = new CreateIndexRequest("live_borast");
             restHighLevelClient.indices().create(createIndexRequest, RequestOptions.DEFAULT);
 //        批量导入mysql的live——borast表
-            List<LiveBorast> liveBorasts = liveBorastDao.liveBorastInfo(new LiveBorast());
+            List<LiveBorast> liveBorasts = liveBorastMapper.liveBorastInfo(new LiveBorast());
             BulkRequest bulkRequest = new BulkRequest();
 //        设置超时时间
             bulkRequest.timeout("10s");
@@ -68,7 +68,7 @@ public class LiveBorastServiceImpl implements LiveBorastService {
      */
     @Override
     public List<LiveBorast> liveBorastInfo(LiveBorast liveBorast) {
-        return liveBorastDao.liveBorastInfo(liveBorast);
+        return liveBorastMapper.liveBorastInfo(liveBorast);
     }
 
     /**
@@ -82,7 +82,7 @@ public class LiveBorastServiceImpl implements LiveBorastService {
         //        通知rabbitmq
         rabbitTemplate.convertAndSend(RabbitMqConstant.EXCHANGE_NAME, "boot.insert.#", JSON.toJSONString(liveBorast));
 
-        return liveBorastDao.insertLiveBorastInfo(liveBorast);
+        return liveBorastMapper.insertLiveBorastInfo(liveBorast);
     }
 
     /**

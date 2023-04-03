@@ -14,7 +14,6 @@
         <result property="gender" column="gender"/>
         <result property="avatar" column="avatar"/>
         <result property="userPassword" column="user_password"/>
-
         <result property="userLoginStatus" column="user_login_status"/>
         <result property="userStatus" column="user_status"/>
         <result property="userLoginIp" column="user_loginIp"/>

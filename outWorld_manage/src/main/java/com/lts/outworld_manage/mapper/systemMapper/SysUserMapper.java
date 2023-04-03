@@ -7,10 +7,10 @@ import org.apache.ibatis.annotations.Mapper;
 public interface SysUserMapper {
     /**
      * 根据用户名查询用户信息（去掉用户状态是2的用户）
-     * @param username 用户名
+     * @param sysUser 用户信息
      * @return 用户信息
      */
-    SysUser userInfo(String username);
+    SysUser selectUserInfoList(SysUser sysUser);
 
     /**
      * 新增用户信息

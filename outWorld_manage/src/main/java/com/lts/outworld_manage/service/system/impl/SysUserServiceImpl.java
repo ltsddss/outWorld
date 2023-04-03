@@ -11,7 +11,7 @@ public class SysUserServiceImpl implements SysUserService {
     @Autowired
     private SysUserMapper sysUserDao;
     @Override
-    public SysUser userInfo(String username) {
-        return sysUserDao.userInfo(username);
+    public SysUser selectUserInfoList(SysUser sysUser) {
+        return sysUserDao.selectUserInfoList(sysUser);
     }
 }

@@ -15,7 +15,7 @@
               poster="../../../static/imgs/notStartBorast.png"
               preload="auto"
               style="width: 668px;height: 376px;"
-            >
+              >
               <source :src="srcUrl"/>
             </video>
           </el-col>

@@ -7,43 +7,11 @@ spring:
     static-path-pattern: /static/**
   #mysql
   datasource:
-    outworldSys:
-      type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:mysql://localhost:3306/outworld_sys?useUnicode=true&characterEncoding=UTF-8&useSSL=false
-      username: root
-      password: 419253381
-      driver-class-name: com.mysql.jdbc.Driver
-    outworldLiveBorast:
-      type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:mysql://localhost:3306/outworld_liveborast?useUnicode=true&characterEncoding=UTF-8&useSSL=false
-      username: root
-      password: 419253381
-      driver-class-name: com.mysql.jdbc.Driver
-    druid:
-      #最大活跃数
-      maxActive: 20
-      #初始化数量
-      initialSize: 1
-      #最大连接等待超时时间
-      maxWait: 60000
-      #打开PSCache，并且指定每个连接PSCache的大小
-      poolPreparedStatements: true
-      maxPoolPreparedStatementPerConnectionSize: 20
-      #通过connectionProperties属性来打开mergeSql功能；慢SQL记录
-      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-      minIdle: 1
-      timeBetweenEvictionRunsMillis: 60000
-      minEvictableIdleTimeMillis: 300000
-      validationQuery: select 1 from dual
-      validationQuery1: select 1
-      # 注意 有的数据库不支持select 1 from dual 在配置处需要修改为下方的select 1
-      testWhileIdle: true
-      testOnBorrow: false
-      testOnReturn: false
-      #配置监控统计拦截的filters，去掉后监控界面sql将无法统计,'wall'用于防火墙
-      filters: stat, wall, log4j
-      # 合并多个DruidDataSource的监控数据
-      use-global-data-source-stat: true
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/outworld_sys?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 419253381
+    driver-class-name: com.mysql.jdbc.Driver
   #redis
   redis:
     database: 1
@@ -60,6 +28,14 @@ spring:
 
   application:
     name: outworld-system
+    #  thymeleaf
+  thymeleaf:
+    prefix: classpath:/templates/
+    encoding: UTF-8
+    cache: false
+    suffix: .html
+    servlet:
+      content-type: text/html
 
 eureka:
   client:
@@ -69,3 +45,5 @@ eureka:
 # MyBatis
 mybatis:
   mapperLocations: classpath*:mapper/**/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
