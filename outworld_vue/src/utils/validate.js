@@ -3,3 +3,15 @@
 export function validUsername(str){
   return str.trim();
 }
+
+export function createSixString(str){
+  //  生成随机6位数
+  let chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+  /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+  let maxPos = chars.length;
+  var code = '';
+  for (let i = 0; i < 6; i++) {
+    code += chars.charAt(Math.floor(Math.random() * maxPos));
+  }
+  return code
+}

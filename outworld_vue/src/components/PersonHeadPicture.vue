@@ -49,7 +49,7 @@ export default {
     </div>
     <div v-show="isChange">
       <el-upload class="avatar-uploader"
-                 action="https://jsonplaceholder.typicode.com/posts/"
+                 action=""
                  :show-file-list="false"
                  :on-success="handleAvatarSuccess"
                  :before-upload="beforeAvatarUpload">

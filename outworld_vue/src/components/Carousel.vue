@@ -9,7 +9,7 @@
         class="video-js vjs-default-skin"
         controls
         poster="../../static/imgs/notStartBorast.png"
-        preload="auto"
+        muted
         style="width: 100%;height: 100%;"
       >
         <source :src="item"/>
