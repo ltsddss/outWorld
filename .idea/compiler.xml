@@ -13,6 +13,7 @@
         <module name="outWorld_liveborast" />
         <module name="outWorld_system" />
         <module name="outWorld_common" />
+        <module name="renren-fast" />
         <module name="outWorld_manage" />
         <module name="outWorld_moudles" />
         <module name="outWorld_getway" />
@@ -40,6 +41,7 @@
       <module name="outWorld_moudles" options="-parameters" />
       <module name="outWorld_rabbitMq" options="-parameters" />
       <module name="outWorld_system" options="-parameters" />
+      <module name="renren-fast" options="-parameters" />
     </option>
   </component>
 </project>

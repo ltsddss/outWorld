@@ -3,7 +3,24 @@
     <!-- header -->
     <el-header style="height:auto">
       <nav-head :user="user"></nav-head>
-      <carousel :carousels="carousels"></carousel>
+      <el-carousel :interval="4000"
+                   type="card"
+                   height="480px">
+        <el-carousel-item v-for="(item,index) in carousels"
+                          :key="index">
+          <video
+            id="my-video"
+            class="video-js vjs-default-skin"
+            controls
+            poster="../../static/imgs/notStartBorast.png"
+            muted
+            style="width: 100%;height: 100%;"
+          >
+            <source :src="item"/>
+          </video>
+        </el-carousel-item>
+      </el-carousel>
+
       <nav-bar></nav-bar>
     </el-header>
     <!-- main -->
@@ -46,6 +63,7 @@ import NavBar from '../components/NavBar.vue'
 import UpdateTable from '../components/UpdateTable.vue'
 import FooterBar from '../components/FooterBar.vue'
 import Recommond from '../components/Recommond.vue'
+
 export default {
   name: 'home',
   components: {
@@ -69,148 +87,235 @@ export default {
         'http://192.168.10.100:8080/lives/livestream.m3u8',
       ],
       recommondItems: [
-        { name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常' },
-        { name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常' },
-        { name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常' },
-        { name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常' },
-        { name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常' },
-        { name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常' },
-        { name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常' },
-        { name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常' },
-        { name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常' }
+        {name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常'},
+        {name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常'},
+        {name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常'},
+        {name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常'},
+        {name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常'},
+        {name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常'},
+        {name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常'},
+        {name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常'},
+        {name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常'}
 
       ],
       rankinglist: [
-        { id: 1, name: 'html page cover', createTime: '2019-11-08', author: '秋天书店', type: '冒险，奇幻', img: require('../assets/img/html_cover.png'), showWord: false },
-        { id: 2, name: 'html page cover', createTime: '2019-11-08', author: '秋天书店', type: '冒险，奇幻', img: require('../assets/img/html_cover.png'), showWord: true },
-        { id: 3, name: 'html page cover', createTime: '2019-11-08', author: '秋天书店', type: '冒险，奇幻', img: require('../assets/img/html_cover.png'), showWord: true },
-        { id: 4, name: 'html page cover', createTime: '2019-11-08', author: '秋天书店', type: '冒险，奇幻', img: require('../assets/img/html_cover.png'), showWord: true },
-        { id: 5, name: 'html page cover', createTime: '2019-11-08', author: '秋天书店', type: '冒险，奇幻', img: require('../assets/img/html_cover.png'), showWord: true },
-        { id: 6, name: 'html page cover', createTime: '2019-11-08', author: '秋天书店', type: '冒险，奇幻', img: require('../assets/img/html_cover.png'), showWord: true },
-        { id: 7, name: 'html page cover', createTime: '2019-11-08', author: '秋天书店', type: '冒险，奇幻', img: require('../assets/img/html_cover.png'), showWord: true },
-        { id: 8, name: 'html page cover', createTime: '2019-11-08', author: '秋天书店', type: '冒险，奇幻', img: require('../assets/img/html_cover.png'), showWord: true },
-        { id: 9, name: 'html page cover', createTime: '2019-11-08', author: '秋天书店', type: '冒险，奇幻', img: require('../assets/img/html_cover.png'), showWord: true },
-        { id: 10, name: 'html page cover', createTime: '2019-11-08', author: '秋天书店', type: '冒险，奇幻', img: require('../assets/img/html_cover.png'), showWord: true }
+        {
+          id: 1,
+          name: 'html page cover',
+          createTime: '2019-11-08',
+          author: '秋天书店',
+          type: '冒险，奇幻',
+          img: require('../assets/img/html_cover.png'),
+          showWord: false
+        },
+        {
+          id: 2,
+          name: 'html page cover',
+          createTime: '2019-11-08',
+          author: '秋天书店',
+          type: '冒险，奇幻',
+          img: require('../assets/img/html_cover.png'),
+          showWord: true
+        },
+        {
+          id: 3,
+          name: 'html page cover',
+          createTime: '2019-11-08',
+          author: '秋天书店',
+          type: '冒险，奇幻',
+          img: require('../assets/img/html_cover.png'),
+          showWord: true
+        },
+        {
+          id: 4,
+          name: 'html page cover',
+          createTime: '2019-11-08',
+          author: '秋天书店',
+          type: '冒险，奇幻',
+          img: require('../assets/img/html_cover.png'),
+          showWord: true
+        },
+        {
+          id: 5,
+          name: 'html page cover',
+          createTime: '2019-11-08',
+          author: '秋天书店',
+          type: '冒险，奇幻',
+          img: require('../assets/img/html_cover.png'),
+          showWord: true
+        },
+        {
+          id: 6,
+          name: 'html page cover',
+          createTime: '2019-11-08',
+          author: '秋天书店',
+          type: '冒险，奇幻',
+          img: require('../assets/img/html_cover.png'),
+          showWord: true
+        },
+        {
+          id: 7,
+          name: 'html page cover',
+          createTime: '2019-11-08',
+          author: '秋天书店',
+          type: '冒险，奇幻',
+          img: require('../assets/img/html_cover.png'),
+          showWord: true
+        },
+        {
+          id: 8,
+          name: 'html page cover',
+          createTime: '2019-11-08',
+          author: '秋天书店',
+          type: '冒险，奇幻',
+          img: require('../assets/img/html_cover.png'),
+          showWord: true
+        },
+        {
+          id: 9,
+          name: 'html page cover',
+          createTime: '2019-11-08',
+          author: '秋天书店',
+          type: '冒险，奇幻',
+          img: require('../assets/img/html_cover.png'),
+          showWord: true
+        },
+        {
+          id: 10,
+          name: 'html page cover',
+          createTime: '2019-11-08',
+          author: '秋天书店',
+          type: '冒险，奇幻',
+          img: require('../assets/img/html_cover.png'),
+          showWord: true
+        }
       ],
       updateItems: [
-        { updateDate: '今天',
+        {
+          updateDate: '今天',
           isShow: true,
           updateCards: [
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' }
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'}
           ]
         },
-        { updateDate: '昨天',
+        {
+          updateDate: '昨天',
           isShow: false,
           updateCards: [
-            { name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常' }
+            {name: '辉夜大小姐想让我告白 ~天才们的恋爱头脑战~', img: require('../assets/img/card.png'), type: '恋爱，搞笑，校园，日常'}
           ]
         },
-        { updateDate: '周三',
+        {
+          updateDate: '周三',
           isShow: false,
           updateCards: [
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' }
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'}
           ]
         },
-        { updateDate: '周二',
+        {
+          updateDate: '周二',
           isShow: false,
           updateCards: [
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' }
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'}
           ]
         },
-        { updateDate: '周一',
+        {
+          updateDate: '周一',
           isShow: false,
           updateCards: [
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' }
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'}
           ]
         },
-        { updateDate: '周日',
+        {
+          updateDate: '周日',
           isShow: false,
           updateCards: [
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' }
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'}
           ]
         },
-        { updateDate: '周六',
+        {
+          updateDate: '周六',
           isShow: false,
           updateCards: [
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' },
-            { name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗' }
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'},
+            {name: '抱歉，我要毁灭一下这个地球', img: require('../assets/img/card2.png'), type: '奇幻，校园，智斗'}
           ]
         }
 

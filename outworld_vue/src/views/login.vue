@@ -127,6 +127,12 @@ export default {
         }).then((response) => {
           console.log(response)
           //登录成功，存入登录信息
+          if(response.data.data!==null){
+            this.$message({
+              message: '恭喜你，这是一条成功消息',
+              type: 'success'
+            });
+          }
           this.$router.push({path: this.redirect || '/home'})
           this.loading = false
         }).catch(() => {

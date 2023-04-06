@@ -36,4 +36,13 @@ public class LiveBorastController {
     public R<LiveBorast> selectLiveBorast(@RequestBody LiveBorast liveBorast) {
         return R.ok(liveBorastService.liveBorastInfo(liveBorast).get(0));
     }
+
+    @GetMapping("/getLiveSpectatorNumber")
+    public R<LiveBorast> getLiveSpectatorNumber(LiveBorast liveBorast){
+//        获取直播间的id
+//        向redis查询直播间的人数
+//        向rabbitmq发送改直播间人数加一的信息
+//        返回结果
+        return R.ok();
+    }
 }

@@ -8,16 +8,7 @@
       <el-main style="width: 1200px;margin: auto">
         <el-row :span="4">
           <el-col :span="2">
-            <video
-              id="my-video"
-              class="video-js vjs-default-skin"
-              controls
-              poster="../../../static/imgs/notStartBorast.png"
-              preload="auto"
-              style="width: 668px;height: 376px;"
-              >
-              <source :src="srcUrl"/>
-            </video>
+            <Video :video-info="videoInfo"></Video>
           </el-col>
           <el-col :span="2">
             <div></div>
@@ -38,45 +29,26 @@ import videojs from "video.js";
 import Home from "../home";
 import NavHead from '../../components/NavHead.vue'
 import FooterBar from '../../components/FooterBar.vue'
+import Video from "../../components/Video";
 
 export default {
   data: function () {
     return {
       user: null,
-      carousels: null
+      carousels: null,
+      videoInfo:{
+        img:'../../static/imgs/notStartBorast.png',
+        url:'http://192.168.10.100:8080/lives/livestream.m3u8',
+        borastId:null
+      },
     }
   },
   components: {
+    Video,
     Home,
     NavHead,
     FooterBar
   },
-  props: {
-    "srcUrl": {
-      type: String,
-      default: 'http://192.168.10.100:8080/lives/livestream.m3u8'
-    }
-  },
-  mounted() {
-    this.getVideo();
-  },
-  methods: {
-    getVideo() {
-      videojs(
-        "my-video",
-        {
-          bigPlayButton: true,
-          textTrackDisplay: false,
-          posterImage: true,
-          errorDisplay: false,
-          controlBar: false
-        },
-        function () {
-          this.play();
-        }
-      );
-    },
-  }
 }
 </script>
 
