@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/outWorld.iml" filepath="$PROJECT_DIR$/outWorld.iml" />
+      <module fileurl="file://$PROJECT_DIR$/outWorld_auth/outWorld_Auth.iml" filepath="$PROJECT_DIR$/outWorld_auth/outWorld_Auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/outWorld_common/outWorld_common.iml" filepath="$PROJECT_DIR$/outWorld_common/outWorld_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/outWorld_elasticsearch/outWorld_elasticsearch.iml" filepath="$PROJECT_DIR$/outWorld_elasticsearch/outWorld_elasticsearch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/outWorld_eureka/outWorld_eureka.iml" filepath="$PROJECT_DIR$/outWorld_eureka/outWorld_eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/outWorld_getway/outWorld_getway.iml" filepath="$PROJECT_DIR$/outWorld_getway/outWorld_getway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/outWorld_liveborast/outWorld_liveborast.iml" filepath="$PROJECT_DIR$/outWorld_liveborast/outWorld_liveborast.iml" />
+      <module fileurl="file://$PROJECT_DIR$/outWorld_manage/outWorld_manage.iml" filepath="$PROJECT_DIR$/outWorld_manage/outWorld_manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/outWorld_moudles/outWorld_moudles.iml" filepath="$PROJECT_DIR$/outWorld_moudles/outWorld_moudles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/outWorld_moudles/outWorld_rabbitMq/outWorld_rabbitMq.iml" filepath="$PROJECT_DIR$/outWorld_moudles/outWorld_rabbitMq/outWorld_rabbitMq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/outWorld_system/outWorld_system.iml" filepath="$PROJECT_DIR$/outWorld_system/outWorld_system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/renren-fast/renren-fast.iml" filepath="$PROJECT_DIR$/renren-fast/renren-fast.iml" />
+      <module fileurl="file://$PROJECT_DIR$/renren-generator/renren-generator.iml" filepath="$PROJECT_DIR$/renren-generator/renren-generator.iml" />
+    </modules>
+  </component>
+</project>

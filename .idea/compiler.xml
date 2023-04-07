@@ -2,37 +2,43 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="outWorld_eureka" />
-        <module name="outWorld_auth" />
         <module name="outWorld_rabbitMq" />
         <module name="outWorld_liveborast" />
         <module name="outWorld_system" />
         <module name="outWorld_common" />
         <module name="renren-fast" />
         <module name="outWorld_manage" />
-        <module name="outWorld_moudles" />
+        <module name="outWorld_Auth" />
         <module name="outWorld_getway" />
+        <module name="outWorld_moudles" />
         <module name="outWorld_elasticsearch" />
+        <module name="renren-generator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ruoyi" target="1.8" />
-      <module name="ruoyi-admin" target="1.8" />
-      <module name="ruoyi-common" target="1.8" />
-      <module name="ruoyi-framework" target="1.8" />
-      <module name="ruoyi-generator" target="1.8" />
-      <module name="ruoyi-quartz" target="1.8" />
-      <module name="ruoyi-system" target="1.8" />
+      <module name="outWorld" target="8" />
+      <module name="outWorld_Auth" target="1.8" />
+      <module name="outWorld_common" target="8" />
+      <module name="outWorld_elasticsearch" target="1.8" />
+      <module name="outWorld_eureka" target="1.8" />
+      <module name="outWorld_getway" target="1.8" />
+      <module name="outWorld_liveborast" target="17" />
+      <module name="outWorld_manage" target="1.8" />
+      <module name="outWorld_moudles" target="1.8" />
+      <module name="outWorld_rabbitMq" target="1.8" />
+      <module name="outWorld_system" target="1.8" />
+      <module name="renren-fast" target="1.8" />
+      <module name="renren-generator" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="outWorld_auth" options="-parameters" />
+      <module name="outWorld_Auth" options="-parameters" />
       <module name="outWorld_elasticsearch" options="-parameters" />
       <module name="outWorld_eureka" options="-parameters" />
       <module name="outWorld_getway" options="-parameters" />
@@ -42,6 +48,7 @@
       <module name="outWorld_rabbitMq" options="-parameters" />
       <module name="outWorld_system" options="-parameters" />
       <module name="renren-fast" options="-parameters" />
+      <module name="renren-generator" options="-parameters" />
     </option>
   </component>
 </project>

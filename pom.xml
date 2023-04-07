@@ -10,6 +10,16 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>outWorld_common</module>
+        <module>outWorld_auth</module>
+        <module>outWorld_elasticsearch</module>
+        <module>outWorld_eureka</module>
+        <module>outWorld_getway</module>
+        <module>outWorld_liveborast</module>
+        <module>outWorld_moudles</module>
+        <module>outWorld_system</module>
+        <module>outWorld_manage</module>
+        <module>renren-fast</module>
+        <module>renren-generator</module>
     </modules>
 
     <properties>
