@@ -1,7 +1,7 @@
 package com.lts.config;
 
 import com.lts.entity.LoginInfo;
-import com.lts.entity.SysUser;
+import com.lts.entity.SysUserEntity;
 import com.lts.feign.LoginFegin;
 import com.lts.utils.R;
 import org.slf4j.Logger;
@@ -19,13 +19,13 @@ public class LoginFeginFactory implements FallbackFactory<LoginFegin> {
         log.error("用户服务调用失败:{}", cause.getMessage());
         return new LoginFegin() {
             @Override
-            public R<SysUser> getUserInfo(String username) {
-                return R.fail("获取用户失败:" + cause.getMessage());
+            public R getUserInfo(SysUserEntity sysUserEntity) {
+                return R.error("获取用户失败:" + cause.getMessage());
             }
 
             @Override
-            public R<Integer> Register(LoginInfo loginInfo) {
-                return R.fail("注册用户失败:" + cause.getMessage());
+            public R Register(LoginInfo loginInfo) {
+                return R.error("注册用户失败:" + cause.getMessage());
             }
         };
     }

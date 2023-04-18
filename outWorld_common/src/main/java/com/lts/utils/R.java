@@ -1,104 +1,64 @@
+/**
+ * Copyright (c) 2016-2019 人人开源 All rights reserved.
+ *
+ * https://www.renren.io
+ *
+ * 版权所有，侵权必究！
+ */
+
 package com.lts.utils;
 
-import java.io.Serializable;
+import org.apache.http.HttpStatus;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * 响应信息主体
+ * 返回数据
  *
+ * @author Mark sunlightcs@gmail.com
  */
-public class R<T> implements Serializable
-{
-    private static final long serialVersionUID = 1L;
+public class R extends HashMap<String, Object> {
+	private static final long serialVersionUID = 1L;
+	
+	public R() {
+		put("code", 0);
+		put("msg", "success");
+	}
+	
+	public static R error() {
+		return error(HttpStatus.SC_INTERNAL_SERVER_ERROR, "未知异常，请联系管理员");
+	}
+	
+	public static R error(String msg) {
+		return error(HttpStatus.SC_INTERNAL_SERVER_ERROR, msg);
+	}
+	
+	public static R error(int code, String msg) {
+		R r = new R();
+		r.put("code", code);
+		r.put("msg", msg);
+		return r;
+	}
 
-    /** 成功 */
-    public static final int SUCCESS = 200;
+	public static R ok(String msg) {
+		R r = new R();
+		r.put("msg", msg);
+		return r;
+	}
+	
+	public static R ok(Map<String, Object> map) {
+		R r = new R();
+		r.putAll(map);
+		return r;
+	}
+	
+	public static R ok() {
+		return new R();
+	}
 
-    /** 失败 */
-    public static final int FAIL = 500;
-
-    private int code;
-
-    private String msg;
-
-    private T data;
-
-    public static <T> R<T> ok()
-    {
-        return restResult(null, SUCCESS, null);
-    }
-
-    public static <T> R<T> ok(T data)
-    {
-        return restResult(data, SUCCESS, null);
-    }
-
-    public static <T> R<T> ok(T data, String msg)
-    {
-        return restResult(data, SUCCESS, msg);
-    }
-
-    public static <T> R<T> fail()
-    {
-        return restResult(null, FAIL, null);
-    }
-
-    public static <T> R<T> fail(String msg)
-    {
-        return restResult(null, FAIL, msg);
-    }
-
-    public static <T> R<T> fail(T data)
-    {
-        return restResult(data, FAIL, null);
-    }
-
-    public static <T> R<T> fail(T data, String msg)
-    {
-        return restResult(data, FAIL, msg);
-    }
-
-    public static <T> R<T> fail(int code, String msg)
-    {
-        return restResult(null, code, msg);
-    }
-
-    private static <T> R<T> restResult(T data, int code, String msg)
-    {
-        R<T> apiResult = new R<>();
-        apiResult.setCode(code);
-        apiResult.setData(data);
-        apiResult.setMsg(msg);
-        return apiResult;
-    }
-
-    public int getCode()
-    {
-        return code;
-    }
-
-    public void setCode(int code)
-    {
-        this.code = code;
-    }
-
-    public String getMsg()
-    {
-        return msg;
-    }
-
-    public void setMsg(String msg)
-    {
-        this.msg = msg;
-    }
-
-    public T getData()
-    {
-        return data;
-    }
-
-    public void setData(T data)
-    {
-        this.data = data;
-    }
-
+	public R put(String key, Object value) {
+		super.put(key, value);
+		return this;
+	}
 }

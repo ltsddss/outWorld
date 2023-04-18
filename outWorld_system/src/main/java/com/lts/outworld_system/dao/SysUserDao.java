@@ -1,21 +1,17 @@
 package com.lts.outworld_system.dao;
 
-import com.lts.outworld_system.entity.SysUser;
+import com.lts.outworld_system.entity.SysUserEntity;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+/**
+ * 系统用户
+ * 
+ * @author chenshun
+ * @email sunlightcs@gmail.com
+ * @date 2023-04-18 15:12:33
+ */
 @Mapper
-public interface SysUserDao {
-    /**
-     * 根据用户名查询用户信息
-     * @param sysUser 用户名
-     * @return 用户信息
-     */
-    SysUser userInfo(SysUser sysUser);
-
-    /**
-     * 注册用户信息
-     * @param sysUser 用户信息
-     * @return 是否注册成功
-     */
-    Integer registerUser(SysUser sysUser);
+public interface SysUserDao extends BaseMapper<SysUserEntity> {
+	
 }

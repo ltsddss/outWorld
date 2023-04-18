@@ -4,7 +4,7 @@ server:
 spring:
   #mysql
   datasource:
-    url: jdbc:mysql://localhost:3306/outworld_sys?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/outworld_admin?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: 419253381
     driver-class-name: com.mysql.jdbc.Driver

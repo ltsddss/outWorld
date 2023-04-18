@@ -25,8 +25,8 @@ public class LoginController {
      * @return Token信息
      */
     @PostMapping("/login")
-    public R<String> Login(@RequestBody LoginBody loginBody){
-        LoginInfo login = loginService.Login(loginBody.userName);
+    public R Login(@RequestBody LoginBody loginBody){
+        R login = loginService.Login(loginBody.getUserName(),loginBody.getUserPassword());
 //        判断密码是否正确
         if(!Objects.equals(MD5.encryptToMD5(loginBody.userPassword), login.getUserPassword())){
             throw new ServiceException("密码错误");
@@ -40,9 +40,9 @@ public class LoginController {
     }
 
     @PostMapping("/Register")
-    public R<Boolean> Register(@RequestBody LoginBody loginBody){
+    public R Register(@RequestBody LoginBody loginBody){
 //        注册接口
         Boolean register = loginService.Register(loginBody.userName, loginBody.userPassword);
-        return R.ok(register);
+        return R.ok().put("msg",register);
     }
 }

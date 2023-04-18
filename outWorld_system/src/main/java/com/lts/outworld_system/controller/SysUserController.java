@@ -1,47 +1,90 @@
 package com.lts.outworld_system.controller;
 
-import com.lts.outworld_system.entity.SysUser;
+import java.util.Arrays;
+import java.util.Map;
+
+import com.lts.outworld_system.entity.SysUserEntity;
 import com.lts.outworld_system.service.SysUserService;
+import com.lts.utils.PageUtils;
 import com.lts.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/system")
-public class SysUserController {
 
+/**
+ * 系统用户
+ *
+ * @author chenshun
+ * @email sunlightcs@gmail.com
+ * @date 2023-04-18 15:12:33
+ */
+@RestController
+@RequestMapping("outworld_system/sysuser")
+public class SysUserController {
     @Autowired
     private SysUserService sysUserService;
 
     /**
-     *  登录接口
-     * @param username 登录需要的信息（userName）
-     * @return 返回结果
+     * 登录接口
+     * @param sysUserEntity 登录实体类
+     * @return 结果
      */
-    @GetMapping("/login/{username}")
-    public R<SysUser> login(@PathVariable("username") String username){
-        SysUser userInfo = sysUserService.userInfo(username);
-        return R.ok(userInfo);
+    @GetMapping("/login")
+    public R login(@RequestParam SysUserEntity sysUserEntity){
+        String login = sysUserService.login(sysUserEntity);
+        return R.ok().put("msg",login);
     }
 
     /**
-     * 注册接口
-     * @param sysUser 注册需要的信息
-     * @return 返回结果
+     * 列表
      */
-    @PostMapping("/register")
-    public R<Integer> register(@RequestBody SysUser sysUser){
-        Integer registerUser = sysUserService.registerUser(sysUser);
-        return R.ok(registerUser);
+    @RequestMapping("/list")
+    public R list(@RequestParam Map<String, Object> params){
+        PageUtils page = sysUserService.queryPage(params);
+        return R.ok().put("page", page);
+    }
+
+
+
+
+    /**
+     * 信息
+     */
+    @RequestMapping("/info/{userId}")
+    public R info(@PathVariable("userId") Long userId){
+		SysUserEntity sysUser = sysUserService.getById(userId);
+
+        return R.ok().put("sysUser", sysUser);
     }
 
     /**
-     * 删除用户信息接口（逻辑删除，将用户的状态置2）
-     * @param sysUser 需要删除的用户信息
-     * @return 返回结果
+     * 保存
      */
-    @PostMapping("/deleteById")
-    public R deleteUser(@RequestBody SysUser sysUser){
+    @RequestMapping("/save")
+    public R save(@RequestBody SysUserEntity sysUser){
+		sysUserService.save(sysUser);
+
         return R.ok();
     }
+
+    /**
+     * 修改
+     */
+    @RequestMapping("/update")
+    public R update(@RequestBody SysUserEntity sysUser){
+		sysUserService.updateById(sysUser);
+
+        return R.ok();
+    }
+
+    /**
+     * 删除
+     */
+    @RequestMapping("/delete")
+    public R delete(@RequestBody Long[] userIds){
+		sysUserService.removeByIds(Arrays.asList(userIds));
+
+        return R.ok();
+    }
+
 }
