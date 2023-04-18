@@ -18,8 +18,6 @@
         <module>outWorld_moudles</module>
         <module>outWorld_system</module>
         <module>outWorld_manage</module>
-        <module>renren-fast</module>
-        <module>renren-generator</module>
     </modules>
 
     <properties>
