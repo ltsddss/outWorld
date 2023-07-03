@@ -28,14 +28,14 @@ public class LoginController {
     public R Login(@RequestBody LoginBody loginBody){
         R login = loginService.Login(loginBody.getUserName(),loginBody.getUserPassword());
 //        判断密码是否正确
-        if(!Objects.equals(MD5.encryptToMD5(loginBody.userPassword), login.getUserPassword())){
+        if(!Objects.equals(MD5.encryptToMD5(loginBody.getUserName()), loginBody.getUserPassword())){
             throw new ServiceException("密码错误");
         }
-        if(!Objects.equals("1",login.getUserStatus())){
+        if(!Objects.equals("1",login.get("msg"))){
             throw new ServiceException("用户被禁用");
         }
 //        利用login来制作token
-        String token=JWTUtils.acquireJWT("令牌",login.getUserName(),login.getUserPassword());
+        String token=JWTUtils.acquireJWT("令牌",loginBody.getUserName(),loginBody.getUserPassword());
         return R.ok(token);
     }
 
