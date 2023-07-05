@@ -9,7 +9,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="outWorld_liveborast" />
         <module name="outWorld_Auth" />
-        <module name="outWorld_moudles" />
         <module name="renren-dynamic-datasource" />
         <module name="renren-generator" />
         <module name="renren-admin" />
