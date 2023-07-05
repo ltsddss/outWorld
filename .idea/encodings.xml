@@ -5,23 +5,19 @@
     <file url="file://$PROJECT_DIR$/outWorld_auth/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/outWorld_common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/outWorld_common/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/outWorld_elasticsearch/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/outWorld_elasticsearch/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/outWorld_eureka/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/outWorld_eureka/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/outWorld_getway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/outWorld_getway/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/outWorld_liveborast/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/outWorld_liveborast/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/outWorld_manage/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/outWorld_manage/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/outWorld_member/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/outWorld_moudles/outWorld_rabbitMq/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/outWorld_moudles/outWorld_rabbitMq/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/outWorld_system/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/outWorld_system/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/renren-fast/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/renren-fast/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/renren-generator/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/renren-generator/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/renren-security/renren-admin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/renren-security/renren-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/renren-security/renren-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/renren-security/renren-dynamic-datasource/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/renren-security/renren-generator/src/main/java" charset="UTF-8" />
   </component>
 </project>

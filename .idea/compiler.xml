@@ -7,18 +7,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="outWorld_liveborast" />
+        <module name="outWorld_Auth" />
+        <module name="outWorld_moudles" />
+        <module name="renren-dynamic-datasource" />
+        <module name="renren-generator" />
+        <module name="renren-admin" />
         <module name="outWorld_eureka" />
         <module name="outWorld_rabbitMq" />
-        <module name="outWorld_liveborast" />
+        <module name="renren-api" />
+        <module name="outWorld_member" />
         <module name="outWorld_system" />
+        <module name="renren-common" />
         <module name="outWorld_common" />
         <module name="renren-fast" />
-        <module name="outWorld_manage" />
-        <module name="outWorld_Auth" />
         <module name="outWorld_getway" />
-        <module name="outWorld_moudles" />
-        <module name="outWorld_elasticsearch" />
-        <module name="renren-generator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -30,11 +33,17 @@
       <module name="outWorld_getway" target="1.8" />
       <module name="outWorld_liveborast" target="16" />
       <module name="outWorld_manage" target="1.8" />
+      <module name="outWorld_member" target="1.8" />
       <module name="outWorld_moudles" target="1.8" />
       <module name="outWorld_rabbitMq" target="1.8" />
       <module name="outWorld_system" target="1.8" />
+      <module name="renren-admin" target="1.8" />
+      <module name="renren-api" target="1.8" />
+      <module name="renren-common" target="1.8" />
+      <module name="renren-dynamic-datasource" target="1.8" />
       <module name="renren-fast" target="1.8" />
       <module name="renren-generator" target="1.8" />
+      <module name="renren-security" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -45,9 +54,14 @@
       <module name="outWorld_getway" options="-parameters" />
       <module name="outWorld_liveborast" options="-parameters" />
       <module name="outWorld_manage" options="-parameters" />
+      <module name="outWorld_member" options="-parameters" />
       <module name="outWorld_moudles" options="-parameters" />
       <module name="outWorld_rabbitMq" options="-parameters" />
       <module name="outWorld_system" options="-parameters" />
+      <module name="renren-admin" options="-parameters" />
+      <module name="renren-api" options="-parameters" />
+      <module name="renren-common" options="-parameters" />
+      <module name="renren-dynamic-datasource" options="-parameters" />
       <module name="renren-fast" options="-parameters" />
       <module name="renren-generator" options="-parameters" />
     </option>
