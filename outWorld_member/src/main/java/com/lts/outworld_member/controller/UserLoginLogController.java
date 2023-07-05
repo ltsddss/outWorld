@@ -1,23 +1,21 @@
 package com.lts.outworld_member.controller;
 
-import io.renren.common.annotation.LogOperation;
-import io.renren.common.constant.Constant;
-import io.renren.common.page.PageData;
-import io.renren.common.utils.ExcelUtils;
-import io.renren.common.utils.Result;
-import io.renren.common.validator.AssertUtils;
-import io.renren.common.validator.ValidatorUtils;
-import io.renren.common.validator.group.AddGroup;
-import io.renren.common.validator.group.DefaultGroup;
-import io.renren.common.validator.group.UpdateGroup;
-import io.renren.modules.demo.dto.UserLoginLogDTO;
-import io.renren.modules.demo.excel.UserLoginLogExcel;
-import io.renren.modules.demo.service.UserLoginLogService;
+import com.lts.outworld_member.dto.UserLoginLogDTO;
+import com.lts.outworld_member.excel.UserLoginLogExcel;
+import com.lts.outworld_member.service.UserLoginLogService;
+import com.lts.utils.Constant;
+import com.lts.utils.ExcelUtils;
+import com.lts.utils.PageData;
+import com.lts.utils.Result;
+import com.lts.validator.AssertUtils;
+import com.lts.validator.ValidatorUtils;
+import com.lts.validator.group.AddGroup;
+import com.lts.validator.group.DefaultGroup;
+import com.lts.validator.group.UpdateGroup;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
@@ -48,7 +46,7 @@ public class UserLoginLogController {
         @ApiImplicitParam(name = Constant.ORDER_FIELD, value = "排序字段", paramType = "query", dataType="String") ,
         @ApiImplicitParam(name = Constant.ORDER, value = "排序方式，可选值(asc、desc)", paramType = "query", dataType="String")
     })
-    @RequiresPermissions("demo:userloginlog:page")
+//    @RequiresPermissions("demo:userloginlog:page")
     public Result<PageData<UserLoginLogDTO>> page(@ApiIgnore @RequestParam Map<String, Object> params){
         PageData<UserLoginLogDTO> page = userLoginLogService.page(params);
 
@@ -57,7 +55,7 @@ public class UserLoginLogController {
 
     @GetMapping("{id}")
     @ApiOperation("信息")
-    @RequiresPermissions("demo:userloginlog:info")
+//    @RequiresPermissions("demo:userloginlog:info")
     public Result<UserLoginLogDTO> get(@PathVariable("id") Long id){
         UserLoginLogDTO data = userLoginLogService.get(id);
 
@@ -66,8 +64,8 @@ public class UserLoginLogController {
 
     @PostMapping
     @ApiOperation("保存")
-    @LogOperation("保存")
-    @RequiresPermissions("demo:userloginlog:save")
+//    @LogOperation("保存")
+//    @RequiresPermissions("demo:userloginlog:save")
     public Result save(@RequestBody UserLoginLogDTO dto){
         //效验数据
         ValidatorUtils.validateEntity(dto, AddGroup.class, DefaultGroup.class);
@@ -79,8 +77,8 @@ public class UserLoginLogController {
 
     @PutMapping
     @ApiOperation("修改")
-    @LogOperation("修改")
-    @RequiresPermissions("demo:userloginlog:update")
+//    @LogOperation("修改")
+//    @RequiresPermissions("demo:userloginlog:update")
     public Result update(@RequestBody UserLoginLogDTO dto){
         //效验数据
         ValidatorUtils.validateEntity(dto, UpdateGroup.class, DefaultGroup.class);
@@ -92,8 +90,8 @@ public class UserLoginLogController {
 
     @DeleteMapping
     @ApiOperation("删除")
-    @LogOperation("删除")
-    @RequiresPermissions("demo:userloginlog:delete")
+//    @LogOperation("删除")
+//    @RequiresPermissions("demo:userloginlog:delete")
     public Result delete(@RequestBody Long[] ids){
         //效验数据
         AssertUtils.isArrayEmpty(ids, "id");
@@ -105,8 +103,8 @@ public class UserLoginLogController {
 
     @GetMapping("export")
     @ApiOperation("导出")
-    @LogOperation("导出")
-    @RequiresPermissions("demo:userloginlog:export")
+//    @LogOperation("导出")
+//    @RequiresPermissions("demo:userloginlog:export")
     public void export(@ApiIgnore @RequestParam Map<String, Object> params, HttpServletResponse response) throws Exception {
         List<UserLoginLogDTO> list = userLoginLogService.list(params);
 

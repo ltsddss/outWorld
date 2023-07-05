@@ -1,12 +1,11 @@
 package com.lts.outworld_member.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.lts.outworld_member.dao.UserLoginLogDao;
+import com.lts.outworld_member.dto.UserLoginLogDTO;
 import com.lts.outworld_member.entity.UserLoginLogEntity;
-import io.renren.common.service.impl.CrudServiceImpl;
-import io.renren.modules.demo.dao.UserLoginLogDao;
-import io.renren.modules.demo.dto.UserLoginLogDTO;
-import io.renren.modules.demo.entity.UserLoginLogEntity;
-import io.renren.modules.demo.service.UserLoginLogService;
+import com.lts.outworld_member.service.UserLoginLogService;
+import com.lts.service.impl.CrudServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 

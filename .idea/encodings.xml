@@ -14,10 +14,5 @@
     <file url="file://$PROJECT_DIR$/outWorld_member/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/outWorld_moudles/outWorld_rabbitMq/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/outWorld_moudles/outWorld_rabbitMq/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/renren-security/renren-admin/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/renren-security/renren-api/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/renren-security/renren-common/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/renren-security/renren-dynamic-datasource/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/renren-security/renren-generator/src/main/java" charset="UTF-8" />
   </component>
 </project>

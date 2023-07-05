@@ -2,7 +2,8 @@ package com.lts.outworld_member.service;
 
 import com.lts.outworld_member.dto.UserLoginLogDTO;
 import com.lts.outworld_member.entity.UserLoginLogEntity;
-import io.renren.common.service.CrudService;
+import com.lts.service.CrudService;
+
 
 /**
  * 登录记录表

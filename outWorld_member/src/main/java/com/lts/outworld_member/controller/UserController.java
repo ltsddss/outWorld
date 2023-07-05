@@ -1,19 +1,17 @@
 package com.lts.outworld_member.controller;
 
+import com.lts.outworld_member.dto.UserDTO;
+import com.lts.outworld_member.excel.UserExcel;
 import com.lts.outworld_member.service.UserService;
-import io.renren.common.annotation.LogOperation;
-import io.renren.common.constant.Constant;
-import io.renren.common.page.PageData;
-import io.renren.common.utils.ExcelUtils;
-import io.renren.common.utils.Result;
-import io.renren.common.validator.AssertUtils;
-import io.renren.common.validator.ValidatorUtils;
-import io.renren.common.validator.group.AddGroup;
-import io.renren.common.validator.group.DefaultGroup;
-import io.renren.common.validator.group.UpdateGroup;
-import io.renren.modules.demo.dto.UserDTO;
-import io.renren.modules.demo.excel.UserExcel;
-import io.renren.modules.demo.service.UserService;
+import com.lts.utils.Constant;
+import com.lts.utils.ExcelUtils;
+import com.lts.utils.PageData;
+import com.lts.utils.Result;
+import com.lts.validator.AssertUtils;
+import com.lts.validator.ValidatorUtils;
+import com.lts.validator.group.AddGroup;
+import com.lts.validator.group.DefaultGroup;
+import com.lts.validator.group.UpdateGroup;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -66,7 +64,7 @@ public class UserController {
 
     @PostMapping
     @ApiOperation("保存")
-    @LogOperation("保存")
+//    @LogOperation("保存")
 //    @RequiresPermissions("demo:user:save")
     public Result save(@RequestBody UserDTO dto) {
         //效验数据
@@ -79,7 +77,7 @@ public class UserController {
 
     @PutMapping
     @ApiOperation("修改")
-    @LogOperation("修改")
+//    @LogOperation("修改")
 //    @RequiresPermissions("demo:user:update")
     public Result update(@RequestBody UserDTO dto) {
         //效验数据
@@ -92,7 +90,7 @@ public class UserController {
 
     @DeleteMapping
     @ApiOperation("删除")
-    @LogOperation("删除")
+//    @LogOperation("删除")
 //    @RequiresPermissions("demo:user:delete")
     public Result delete(@RequestBody Long[] ids) {
         //效验数据
@@ -105,7 +103,7 @@ public class UserController {
 
     @GetMapping("export")
     @ApiOperation("导出")
-    @LogOperation("导出")
+//    @LogOperation("导出")
 //    @RequiresPermissions("demo:user:export")
     public void export(@ApiIgnore @RequestParam Map<String, Object> params, HttpServletResponse response) throws Exception {
         List<UserDTO> list = userService.list(params);

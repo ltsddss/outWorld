@@ -1,7 +1,7 @@
 package com.lts.outworld_member.dao;
 
-import io.renren.common.dao.BaseDao;
-import io.renren.modules.demo.entity.UserLoginLogEntity;
+import com.lts.dao.BaseDao;
+import com.lts.outworld_member.entity.UserLoginLogEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

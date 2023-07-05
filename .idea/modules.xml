@@ -12,13 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/outWorld_moudles/outWorld_moudles.iml" filepath="$PROJECT_DIR$/outWorld_moudles/outWorld_moudles.iml" />
       <module fileurl="file://$PROJECT_DIR$/outWorld_moudles/outWorld_rabbitMq/outWorld_rabbitMq.iml" filepath="$PROJECT_DIR$/outWorld_moudles/outWorld_rabbitMq/outWorld_rabbitMq.iml" />
       <module fileurl="file://$PROJECT_DIR$/outWorld_system/outWorld_system.iml" filepath="$PROJECT_DIR$/outWorld_system/outWorld_system.iml" />
-      <module fileurl="file://$PROJECT_DIR$/renren-security/renren-admin/renren-admin.iml" filepath="$PROJECT_DIR$/renren-security/renren-admin/renren-admin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/renren-security/renren-api/renren-api.iml" filepath="$PROJECT_DIR$/renren-security/renren-api/renren-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/renren-security/renren-common/renren-common.iml" filepath="$PROJECT_DIR$/renren-security/renren-common/renren-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/renren-security/renren-dynamic-datasource/renren-dynamic-datasource.iml" filepath="$PROJECT_DIR$/renren-security/renren-dynamic-datasource/renren-dynamic-datasource.iml" />
       <module fileurl="file://$PROJECT_DIR$/renren-fast/renren-fast.iml" filepath="$PROJECT_DIR$/renren-fast/renren-fast.iml" />
-      <module fileurl="file://$PROJECT_DIR$/renren-security/renren-generator/renren-generator.iml" filepath="$PROJECT_DIR$/renren-security/renren-generator/renren-generator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/renren-security/renren-security.iml" filepath="$PROJECT_DIR$/renren-security/renren-security.iml" />
     </modules>
   </component>
 </project>

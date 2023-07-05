@@ -1,8 +1,9 @@
 package com.lts.outworld_member.service;
 
-import io.renren.common.service.CrudService;
-import io.renren.modules.demo.dto.UserDTO;
-import io.renren.modules.demo.entity.UserEntity;
+import com.lts.outworld_member.dto.UserDTO;
+import com.lts.outworld_member.entity.UserEntity;
+import com.lts.service.CrudService;
+
 
 /**
  * 用户表

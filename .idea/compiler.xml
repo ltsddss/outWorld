@@ -9,15 +9,10 @@
         <outputRelativeToContentRoot value="true" />
         <module name="outWorld_liveborast" />
         <module name="outWorld_Auth" />
-        <module name="renren-dynamic-datasource" />
-        <module name="renren-generator" />
-        <module name="renren-admin" />
         <module name="outWorld_eureka" />
         <module name="outWorld_rabbitMq" />
-        <module name="renren-api" />
         <module name="outWorld_member" />
         <module name="outWorld_system" />
-        <module name="renren-common" />
         <module name="outWorld_common" />
         <module name="renren-fast" />
         <module name="outWorld_getway" />
