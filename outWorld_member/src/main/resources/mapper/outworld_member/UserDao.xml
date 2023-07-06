@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="io.renren.modules.demo.dao.UserDao">
+<mapper namespace="com.lts.outworld_member.dao.UserDao">
 
-    <resultMap type="io.renren.modules.demo.entity.UserEntity" id="userMap">
+    <resultMap type="com.lts.outworld_member.entity.UserEntity" id="userMap">
         <result property="userId" column="user_id"/>
         <result property="userName" column="user_name"/>
         <result property="nickName" column="nick_name"/>
@@ -27,5 +27,9 @@
         <result property="remark" column="remark"/>
     </resultMap>
 
-
+    <select id="login" parameterType="com.lts.outworld_member.entity.UserEntity" resultMap="userMap">
+        select user_name, user_password, user_error_time,user_status
+        from outworld_member.sys_user
+        where user_name = #{userName}
+    </select>
 </mapper>

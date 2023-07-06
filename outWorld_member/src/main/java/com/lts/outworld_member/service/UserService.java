@@ -3,6 +3,7 @@ package com.lts.outworld_member.service;
 import com.lts.outworld_member.dto.UserDTO;
 import com.lts.outworld_member.entity.UserEntity;
 import com.lts.service.CrudService;
+import com.lts.utils.Result;
 
 
 /**
@@ -13,4 +14,10 @@ import com.lts.service.CrudService;
  */
 public interface UserService extends CrudService<UserEntity, UserDTO> {
 
+    /**
+     * 登录接口
+     * @param userEntity 登录信息
+     * @return 结果集
+     */
+    public Result<String> login(UserEntity userEntity);
 }
