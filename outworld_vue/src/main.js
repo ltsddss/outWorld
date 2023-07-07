@@ -10,7 +10,8 @@ import VueAxios from 'vue-axios'
 import VueVideoPlayer from 'vue-video-player'
 import 'video.js/dist/video-js.css'
 import 'videojs-flash'
-
+import { vueBaberrage } from 'vue-baberrage'
+Vue.use(vueBaberrage)
 Vue.use(VueVideoPlayer)
 Vue.config.productionTip = false
 Vue.prototype.$axios=axios;
