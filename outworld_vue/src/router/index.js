@@ -9,6 +9,7 @@ import home from "../views/home";
 import SelectResult from "../views/SelectResult";
 import Classify from "../views/Classify";
 import liveBorast from "../views/liveBorast";
+import liveBorast1 from "../views/liveBorast1";
 
 Vue.use(VueRouter)
 
@@ -57,7 +58,11 @@ const routes = [
     path: '/liveBoast',
     name: 'name',
     component: liveBorast
-  }
+  },{
+    path: '/liveBoast1',
+    name: 'name',
+    component: liveBorast1
+  },
 ]
 
 const router = new VueRouter({

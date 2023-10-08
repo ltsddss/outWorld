@@ -3,6 +3,8 @@ package com.lts.outworld_liveborast.controller;
 import com.lts.outworld_liveborast.entity.LiveBorast;
 import com.lts.outworld_liveborast.service.LiveBorastService;
 import com.lts.utils.R;
+import com.lts.utils.Result;
+import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,11 +22,11 @@ public class LiveBorastController {
      * @return 是否成功
      */
     @PostMapping("/insertLiveBorastInfo")
-    public R<String> insertLiveBorast(@RequestBody LiveBorast liveBorast) {
+    public Result<String> insertLiveBorast(@RequestBody LiveBorast liveBorast) {
 //        存库
         liveBorastService.insertLiveBorastInfo(liveBorast);
 
-        return R.ok();
+        return null;
     }
 
     /**
@@ -33,16 +35,16 @@ public class LiveBorastController {
      * @return
      */
     @GetMapping("/selectLiveBorast")
-    public R<LiveBorast> selectLiveBorast(@RequestBody LiveBorast liveBorast) {
-        return R.ok(liveBorastService.liveBorastInfo(liveBorast).get(0));
+    public Result<LiveBorast> selectLiveBorast(@RequestBody LiveBorast liveBorast) {
+        return null;
     }
 
     @GetMapping("/getLiveSpectatorNumber")
-    public R<LiveBorast> getLiveSpectatorNumber(LiveBorast liveBorast){
+    public Result<LiveBorast> getLiveSpectatorNumber(LiveBorast liveBorast){
 //        获取直播间的id
 //        向redis查询直播间的人数
 //        向rabbitmq发送改直播间人数加一的信息
 //        返回结果
-        return R.ok();
+        return null;
     }
 }

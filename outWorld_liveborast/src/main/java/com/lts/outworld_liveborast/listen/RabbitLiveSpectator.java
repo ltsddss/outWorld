@@ -16,4 +16,13 @@ public class RabbitLiveSpectator {
 //        获取直播间的id
 //        向redis中该直播间的在线观众加1
     }
+
+    /**
+     * 监听队列，实现信息消费
+     * @param message 监听的消息体
+     */
+    @RabbitListener(queues = "chatQueue")
+    public void ListenerChatInfo(Message message){
+
+    }
 }

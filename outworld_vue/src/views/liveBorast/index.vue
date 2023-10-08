@@ -9,19 +9,21 @@
         <el-row :span="4">
           <el-col :span="2">
             <Video :video-info="videoInfo"></Video>
-            <vue-baberrage
-              :barrageList="barrageList"
-              :boxHeight="boxHeight"
-              :isShow="barrageIsShow"
-              :lanesCount="lanesCount"
-              :loop="barrageLoop"
-              :messageHeight="messageHeight"
-              :throttleGap="throttleGap">
-            </vue-baberrage>
 
           </el-col>
           <el-col :span="2">
-            <div></div>
+            <div>
+              <vue-baberrage
+                :barrageList="barrageList"
+                :boxHeight="boxHeight"
+                :box-width="boxWidth"
+                :isShow="barrageIsShow"
+                :lanesCount="lanesCount"
+                :loop="barrageLoop"
+                :messageHeight="messageHeight"
+                :throttleGap="throttleGap">
+              </vue-baberrage>
+            </div>
           </el-col>
         </el-row>
 
@@ -56,6 +58,7 @@ export default {
       barrageIsShow: true,    	//是否展示弹幕
       barrageLoop: true,     	//是否循环播放
       boxHeight: 170,         	//高度
+      boxWidth: 600,         	//宽度
       messageHeight: 25,		//消息高度
       lanesCount: 4,			//泳道数量
       throttleGap: 5000,		//消息间隔
